@@ -1,23 +1,23 @@
 " Tab completion
-function! Smart_TabComplete()
-  let line = getline('.')                         " curline
-  let substr = strpart(line, -1, col('.')+1)      " from start to cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
+" function! Smart_TabComplete()
+  " let line = getline('.')                         curline
+  " let substr = strpart(line, -1, col('.')+1)      from start to cursor
+  " let substr = matchstr(substr, "[^ \t]*$")       word till cursor
+  " if (strlen(substr)==0)                          nothing to match on empty string
+    " return "\<tab>"
+  " endif
+  " let has_period = match(substr, '\.') != -1      position of period, if any
+  " let has_slash = match(substr, '\/') != -1       position of slash, if any
+  " if (!has_period && !has_slash)
+    " return \<C-X>\<C-P>"                         " existing text matching
+  " elseif ( has_slash )
+    " return \<C-X>\<C-F>"                         " file matching
+  " else
+    " return \<C-X>\<C-O>"                         " plugin matching
+  " endif
+" endfunction
 
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+" inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
@@ -42,6 +42,7 @@ set listchars=tab:⇀\ ,trail:␠
 set matchpairs+=<:>
 set modeline
 set modelines=5
+set number
 set nowrap
 set ruler
 set shell=bash
@@ -57,6 +58,9 @@ set wildmode=longest,list,full
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
+
+" CocoaPods
+au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
 augroup vimrc
   autocmd!
@@ -79,6 +83,10 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
+
+" comment
+nmap \\ <plug>NERDCommenterToggle<CR>
+vmap \\ <plug>NERDCommenterToggle<CR>
 
 " navigate windows
 map <silent> <C-h> :wincmd h<CR>

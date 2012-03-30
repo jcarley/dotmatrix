@@ -25,7 +25,6 @@ export VISUAL EDITOR LESS RI PSQL_EDITOR CLICOLOR LSCOLORS PGOPTIONS LC_CTYPE DI
 
 ## Auto-completion
 sources=(`brew --prefix`/etc/bash_completion
-         ~/.git-completion
          `brew --prefix git`/etc/bash_completion.d/git-completion.bash
          `brew --prefix`/Library/Contributions/brew_bash_completion.sh)
 for src in ${sources[@]}; do
@@ -36,3 +35,5 @@ done
 set -o vi
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
