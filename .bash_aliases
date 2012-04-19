@@ -26,17 +26,18 @@ alias curdeliver='pickler deliver $CURTEST'
 alias curspec='rspec $CURSPEC'
 
 # Directory Navigation
-alias ...='cd ../..;l;'
-alias ..='cd ..;l;'
-alias ~='cd ~;l;'
-alias b='cd -;l;'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias ::='cd ../..'
+alias :::='cd ../../..'
+alias ::::='cd ../../../..'
+alias :::::='cd ../../../../..'
+alias ~='cd ~'
+alias b='cd -'
 alias c=clear
 alias d='ls -bF'
-alias e='exit'
 alias l='ls -aFG'
 alias ll='l -l'
-alias q=quit
-alias x=exit
 
 # Git Commands
 alias gadd='git add .'
