@@ -13,6 +13,7 @@ get_bundle() {
   )
 }
 
+get_bundle ervandew     supertab
 get_bundle tpope        vim-abolish
 get_bundle mileszs      ack.vim
 get_bundle jgdavey      vim-blockle
@@ -20,7 +21,6 @@ get_bundle vim-scripts  bufkill.vim
 get_bundle duff         vim-bufonly
 get_bundle tpope        vim-bundler
 get_bundle kchmck       vim-coffee-script
-get_bundle tpope        vim-commentary
 get_bundle tpope        vim-cucumber
 get_bundle tpope        vim-endwise
 get_bundle tpope        vim-fugitive

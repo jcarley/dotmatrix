@@ -21,6 +21,7 @@ set listchars=tab:⇀\ ,trail:␠
 set matchpairs+=<:>
 set modeline
 set modelines=5
+set number
 set nowrap
 set ruler
 set shell=bash
@@ -36,6 +37,9 @@ set wildmode=longest,list,full
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
+
+" CocoaPods
+au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
 augroup vimrc
   autocmd!
@@ -58,6 +62,10 @@ nmap <silent> ,/ :nohlsearch<CR>
 
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
+
+" comment
+nmap \\ <plug>NERDCommenterToggle<CR>
+vmap \\ <plug>NERDCommenterToggle<CR>
 
 " navigate windows
 map <silent> <C-h> :wincmd h<CR>
