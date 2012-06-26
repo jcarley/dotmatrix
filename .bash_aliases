@@ -26,17 +26,18 @@ alias curdeliver='pickler deliver $CURTEST'
 alias curspec='rspec $CURSPEC'
 
 # Directory Navigation
-alias ...='cd ../..;l;'
-alias ..='cd ..;l;'
-alias ~='cd ~;l;'
-alias b='cd -;l;'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias ::='cd ../..'
+alias :::='cd ../../..'
+alias ::::='cd ../../../..'
+alias :::::='cd ../../../../..'
+alias ~='cd ~'
+alias b='cd -'
 alias c=clear
 alias d='ls -bF'
-alias e='exit'
 alias l='ls -aFG'
 alias ll='l -l'
-alias q=quit
-alias x=exit
 
 # Git Commands
 alias gadd='git add .'
@@ -53,7 +54,7 @@ alias gf='git flow'
 alias gfull='clear; git status; git add .; git add -u; echo "****************"; git status; git ci -am'
 alias gl='git pull'
 alias glog='clear; git log'
-alias gme='git merge'
+alias gme='git merge --no-ff'
 alias gmv='git mv'
 alias gp='git push'
 alias gpull='git pull'
@@ -79,8 +80,11 @@ alias surplus='gem list | ack ","'
 # Rails Commands
 alias cr='c; yn rake'
 alias deploy='cap_deploy.sh'
+alias mysqlup='mysql.server start'
+alias mysqldown='mysql.server stop'
 alias pgup='pg_ctl -w -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pgdown='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias redisup='redis-server /usr/local/etc/redis.conf'
 alias rakedbtestkill='RAILS_ENV=test rake db:drop && RAILS_ENV=test rake db:create && rake db:test:prepare'
 alias rb='ruby'
 alias testenv='RAILS_ENV=test'
@@ -146,5 +150,7 @@ function besdb {
 }
 
 alias unhitch='hitch -u'
+
+bind 'set bind-tty-special-chars off'
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"

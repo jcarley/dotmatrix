@@ -1,24 +1,3 @@
-" Tab completion
-function! Smart_TabComplete()
-  let line = getline('.')                         " curline
-  let substr = strpart(line, -1, col('.')+1)      " from start to cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
-
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
 runtime! autoload/pathogen.vim
 if exists('g:loaded_pathogen')
   call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
@@ -43,6 +22,7 @@ set matchpairs+=<:>
 set modeline
 set modelines=5
 set number
+set nowrap
 set ruler
 set shell=bash
 set shiftwidth=2
@@ -57,6 +37,9 @@ set wildmode=longest,list,full
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
+
+" CocoaPods
+au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby
 
 augroup vimrc
   autocmd!
@@ -80,6 +63,10 @@ nmap <silent> ,/ :nohlsearch<CR>
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
 
+" comment
+nmap \\ <plug>NERDCommenterToggle<CR>
+vmap \\ <plug>NERDCommenterToggle<CR>
+
 " navigate windows
 map <silent> <C-h> :wincmd h<CR>
 map <silent> <C-Left> :wincmd h<CR>
@@ -93,8 +80,8 @@ map <silent> <C-Right> :wincmd l<CR>
 map <silent> <C-Z> :retab<CR> :Trim<CR>
 
 " bubble text
-map <C-H> x<Left>P
-map <C-L> xp
+" map <C-H> x<Left>P
+" map <C-L> xp
 map <C-J> ddp
 map <C-K> ddkP
 
@@ -108,6 +95,8 @@ map <silent> <D-6> :tabn 6<CR>
 map <silent> <D-7> :tabn 7<CR>
 map <silent> <D-8> :tabn 8<CR>
 map <silent> <D-9> :tabn 9<CR>
+
+map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
