@@ -3,12 +3,28 @@ if exists('g:loaded_pathogen')
   call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
 endif
 
+let mapleader = ","
+let g:mapleader = ","
+let localleader = '\'
+
+map ; :
+
+noremap ;; ;
+
 syntax on
+set background=dark
 filetype plugin indent on
-colorscheme vividchalk
+" colorscheme railscasts
+" colorscheme railscasts2
+colorscheme darkburn
+" colorscheme twilight256
+" colorscheme twilight
+
+if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
+  set t_Co=256
+endif
 
 set autoindent
-set background=dark
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
 set expandtab
@@ -49,6 +65,19 @@ augroup END
 " Clean up XML files (visual mode)
 vmap <silent> <leader>x :!tidy -qi -raw -xml<CR>:se filetype=xml<CR>
 
+nnoremap <leader>a :Ack
+
+"Ctags make the world a better place
+""Based on code from https://github.com/spicycode/Vimlander-2-The-Quickening
+" Add RebuildTagsFile function/command
+function! s:RebuildTagsFile()
+  silent !ctags -R --exclude=coverage --exclude=files --exclude=log --exclude=tmp --exclude=vendor *
+endfunction
+command! -nargs=0 RebuildTagsFile call s:RebuildTagsFile()
+
+set tags=./tags;
+map <Leader>rt :RebuildTagsFile<cr>
+
 " Run rake from Rails files
 autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
 autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
@@ -56,6 +85,21 @@ autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
 " find the current file
 map <silent> <C-s> :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
 map <silent> <C-q> :NERDTreeClose<CR>
+
+map <leader>dc :NERDTreeClose<cr>
+map <leader>do :NERDTree<cr>
+" Enable nice colors
+let NERDChristmasTree = 1
+" Make it easy to see where we are
+let NERDTreeHighlightCursorline = 1
+" Make bookmarks visible
+let NERDTreeShowBookmarks = 1
+" Show hidden files
+let NERDTreeShowHidden = 0
+" Don't hijack NETRW
+" let NERDTreeHijackNetrw = 0
+let NERDTreeHijackNetrw = 1
+let NERDTreeIgnore=['\.$', '\~$']
 
 " clear search
 nmap <silent> ,/ :nohlsearch<CR>
