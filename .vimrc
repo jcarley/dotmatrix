@@ -104,6 +104,23 @@ let NERDTreeIgnore=['\.$', '\~$']
 " clear search
 nmap <silent> ,/ :nohlsearch<CR>
 
+" Searching Stuff
+" I prever very magic (\v) search behavior
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch "set hl search
+set incsearch "set incsearch
+set ignorecase "set ignore case for search
+set smartcase "be case sensitive if search has cap letter
+set gdefault " /g flag on :s substitutions to replace all matches in a line:
+nnoremap <leader><space> :noh<cr>  " remove highlight from search matches
+
+"Copy current Vim paste register to clipboard
+map <F2> :PBCopy<cr>
+"Toggle between paste and nopaste, shows which one is active
+map <F3> :set paste!\|set paste?<cr>
+
+
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
 

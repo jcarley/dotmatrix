@@ -51,5 +51,6 @@ get_bundle msanders     cocoa.vim
 get_bundle vim-ruby     vim-ruby
 get_bundle vim-scripts  bufkill.vim
 get_bundle wgibbs       vim-irblack
+get_bundle mortice      pbcopy.vim
 
 vim -c 'call pathogen#helptags()|q'
