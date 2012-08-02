@@ -32,7 +32,7 @@ for src in ${sources[@]}; do
 done
 
 # Use VI mode in bash
-set -o vi
+# set -o vi
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
 
