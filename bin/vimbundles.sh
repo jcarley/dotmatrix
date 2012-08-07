@@ -17,7 +17,7 @@ get_bundle adamlowe     vim-slurper
 get_bundle altercation  vim-colors-solarized
 get_bundle duff         vim-bufonly
 get_bundle ervandew     supertab
-get_bundle flazz        vim-colorschemes
+get_bundle jcarley      vim-colorschemes
 get_bundle godlygeek    tabular
 get_bundle gregsexton   gitv
 get_bundle jgdavey      vim-blockle

@@ -16,8 +16,6 @@ fpath=(
   ~/.zsh/functions
 )
 
-source "$HOME/.hashrc"
-
 # color term
 export CLICOLOR=1
 export LSCOLORS=Dxfxcxdxbxegedabadacad

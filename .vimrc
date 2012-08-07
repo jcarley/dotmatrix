@@ -14,9 +14,9 @@ noremap ;; ;
 syntax on
 set background=dark
 filetype plugin indent on
-" colorscheme railscasts
+colorscheme railscasts
 " colorscheme railscasts2
-colorscheme darkburn
+" colorscheme darkburn
 " colorscheme twilight256
 " colorscheme twilight
 
