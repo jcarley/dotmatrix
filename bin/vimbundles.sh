@@ -37,6 +37,7 @@ get_bundle tpope        vim-endwise
 get_bundle tpope        vim-fugitive
 get_bundle tpope        vim-git
 get_bundle tpope        vim-haml
+get_bundle bbommarito   vim-slim
 get_bundle tpope        vim-markdown
 get_bundle tpope        vim-pathogen
 get_bundle tpope        vim-ragtag
