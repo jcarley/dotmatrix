@@ -85,7 +85,7 @@ autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
 
 " find the current file
 map <silent> <C-s> :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
-map <silent> <C-q> :NERDTreeClose<CR>
+" map <silent> <C-q> :NERDTreeClose<CR>
 
 map <leader>dc :NERDTreeClose<cr>
 map <leader>do :NERDTree<cr>
@@ -138,8 +138,23 @@ map <silent> <C-j> :wincmd j<CR>
 map <silent> <C-Down> :wincmd j<CR>
 map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-Right> :wincmd l<CR>
-
 map <silent> <C-Z> :retab<CR> :Trim<CR>
+
+" command-t mappings
+map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
+map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
+map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
+map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
+map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+
+" rails specific mappings
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+" switch between last two files
+nnoremap <leader><leader> <c-^>
 
 " bubble text
 " map <C-H> x<Left>P
