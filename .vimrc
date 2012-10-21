@@ -50,6 +50,7 @@ set tildeop
 set visualbell
 set wildmenu
 set wildmode=longest,list,full
+set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**
 
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
@@ -65,6 +66,9 @@ augroup END
 
 " Clean up XML files (visual mode)
 vmap <silent> <leader>x :!tidy -qi -raw -xml<CR>:se filetype=xml<CR>
+
+" run selection in bash
+vmap <leader>rs :!bash <CR>
 
 nnoremap <leader>a :Ack
 
@@ -145,9 +149,25 @@ map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
 map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
 map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
+map <leader>gd :CommandTFlush<cr>\|:CommandT app/decorators<cr>
+map <leader>gi :CommandTFlush<cr>\|:CommandT app/infrastructure<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
 map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+
+" shortcut to open new tab and CommandT
+nmap <leader>gn :call NewTabAndCommandT()<cr>
+function! NewTabAndCommandT()
+  :tabnew
+  :CommandT
+endfunction
+
+" shortcut for a new tab and Ack
+nmap <leader>n :call NewTabAndAck()<cr>
+function! NewTabAndAck()
+  :tabnew
+  :Ack
+endfunction
 
 " rails specific mappings
 map <leader>gr :topleft :split config/routes.rb<cr>
