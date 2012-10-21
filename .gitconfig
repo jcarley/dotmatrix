@@ -64,3 +64,5 @@
   name = "Jefferson Carley"
 [http]
 	sslVerify = false
+[credential]
+	helper = osxkeychain
