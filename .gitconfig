@@ -1,4 +1,5 @@
 [alias]
+  d = difftool
   br = branch
   ci = commit
   cl = clone
@@ -31,6 +32,10 @@
   excludesfile = ~/.cvsignore
   editor = vim
   whitespace = warn
+[diff]
+  tool = gvimdiff
+[difftool]
+  prompt = false
 [help]
   autocorrect = 10
 [interactive]
@@ -60,9 +65,9 @@
 [rerere]
   enabled = true
 [user]
-  email = jeff.carley@gmail.com
-  name = "Jefferson Carley"
+  name = jcarley
+  email = jcarley@gettyimages.com
 [http]
-	sslVerify = false
+  sslVerify = false
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
