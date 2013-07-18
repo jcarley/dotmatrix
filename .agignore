@@ -1,0 +1,49 @@
+# Ignore bundler config
+/.bundle
+vendor/bundle
+vendor/getty
+vendor/assets
+
+# Ignore nohup
+nohup.out
+
+# Ignore all logfiles and tempfiles.
+log
+tmp
+tags
+
+# Ignore generate api docs
+/doc/api
+
+# Ignore Mac files
+.DS_Store
+
+# Ignore IDE/Editor specific files 
+*.swp
+*.swo
+*.un~
+
+# Ignore rubymine
+.idea
+
+# Ignore puma files
+config/puma.rb
+puma.log
+
+#Ignore packaged project
+package.tar.gz
+
+#Ignore simplecov coverage folder
+/coverage
+
+#Ignore compiled assets
+/public/assets
+
+#Ignore generated config file for esp
+config/esp_config.yaml
+
+#Ignore rerun.txt for cucumber
+rerun.txt
+
+# Ignore application configuration
+/config/application.yml
