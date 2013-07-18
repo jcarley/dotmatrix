@@ -70,7 +70,7 @@ vmap <silent> <leader>x :!tidy -qi -raw -xml<CR>:se filetype=xml<CR>
 " run selection in bash
 vmap <leader>rs :!bash <CR>
 
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ag
 
 "Ctags make the world a better place
 ""Based on code from https://github.com/spicycode/Vimlander-2-The-Quickening
