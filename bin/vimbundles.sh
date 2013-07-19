@@ -55,7 +55,6 @@ get_bundle wgibbs       vim-irblack
 get_bundle mortice      pbcopy.vim
 get_bundle puppetlabs   puppet-syntax-vim
 get_bundle wincent      Command-T
-get_bundle airblade     vim-gitgutter
 get_bundle skalnik      vim-vroom
 
 vim -c 'call pathogen#helptags()|q'
