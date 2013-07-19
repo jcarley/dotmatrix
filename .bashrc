@@ -1,6 +1,7 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=~/bin:$PATH
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 
@@ -8,4 +9,3 @@ export PATH=~/bin:$PATH
 [ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
 
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
