@@ -1,5 +1,5 @@
 --type-add
-ruby=.haml,.prawn,.rake,.rsel,.feature,.sass,.coffee
+ruby=.haml,.prawn,.rake,.rsel,.feature,.sass,.coffee,.slim
 --ignore-dir=vendor
 --ignore-dir=doc
 --ignore-dir=tmp
@@ -8,3 +8,4 @@ ruby=.haml,.prawn,.rake,.rsel,.feature,.sass,.coffee
 --ignore-dir=metrics
 --ignore-dir=production_data
 --ignore-dir=fixtures
+--ignore-dir=.git
