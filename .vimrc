@@ -13,13 +13,15 @@ map ; :
 noremap ;; ;
 
 syntax on
+set t_Co=256
 set background=dark
-filetype plugin indent on
-colorscheme railscasts
+colorscheme grb256
+" colorscheme railscasts
 " colorscheme railscasts2
 " colorscheme darkburn
 " colorscheme twilight256
 " colorscheme twilight
+filetype plugin indent on
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
