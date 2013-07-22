@@ -65,9 +65,11 @@
 [rerere]
   enabled = true
 [user]
-  name = jcarley
-  email = jcarley@gettyimages.com
+	name = jcarley
+	email = jcarley@gettyimages.com
 [http]
   sslVerify = false
 [credential]
   helper = osxkeychain
+[mergetool]
+	keepBackup = false
