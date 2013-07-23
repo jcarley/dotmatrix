@@ -15,7 +15,8 @@ noremap ;; ;
 syntax on
 set t_Co=256
 set background=dark
-colorscheme grb256
+colorscheme jellybeans-joel
+" colorscheme grb256
 " colorscheme railscasts
 " colorscheme railscasts2
 " colorscheme darkburn
@@ -164,11 +165,11 @@ function! NewTabAndCommandT()
   :CommandT
 endfunction
 
-" shortcut for a new tab and Ack
-nmap <leader>n :call NewTabAndAck()<cr>
-function! NewTabAndAck()
+" shortcut for a new tab and Ag
+nmap <leader>n :call NewTabAndAg()<cr>
+function! NewTabAndAg()
   :tabnew
-  :Ack
+  :Ag
 endfunction
 
 " rails specific mappings
