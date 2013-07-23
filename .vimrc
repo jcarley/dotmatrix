@@ -127,6 +127,7 @@ nnoremap <leader><space> :noh<cr>  " remove highlight from search matches
 map <F2> :PBCopy<cr>
 "Toggle between paste and nopaste, shows which one is active
 map <F3> :set paste!\|set paste?<cr>
+set clipboard=unnamed
 
 
 " sudo save with w!!
