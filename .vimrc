@@ -91,7 +91,7 @@ autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
 autocmd User Rails nnoremap <buffer> <D-R> :<C-U>.Rake<CR>
 
 " find the current file
-map <silent> <C-s> :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
+map <silent> <leader>f :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
 " map <silent> <C-q> :NERDTreeClose<CR>
 
 map <leader>dc :NERDTreeClose<cr>
@@ -128,6 +128,7 @@ map <F2> :PBCopy<cr>
 "Toggle between paste and nopaste, shows which one is active
 map <F3> :set paste!\|set paste?<cr>
 set clipboard=unnamed
+xnoremap p pgvy
 
 
 " sudo save with w!!
