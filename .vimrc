@@ -198,7 +198,14 @@ map <silent> <D-7> :tabn 7<CR>
 map <silent> <D-8> :tabn 8<CR>
 map <silent> <D-9> :tabn 9<CR>
 
+" Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
+
+let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+map <leader>t :call RunCurrentSpecFile()<CR>
+map <leader>s :call RunNearestSpec()<CR>
+map <leader>l :call RunLastSpec()<CR>
+map <leader>a :call RunAllSpecs()<CR>
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local

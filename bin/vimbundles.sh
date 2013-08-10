@@ -59,5 +59,7 @@ get_bundle wincent      Command-T
 # get_bundle airblade     vim-gitgutter
 get_bundle skalnik      vim-vroom
 get_bundle jnwhiteh     vim-golang
+get_bundle thoughtbot   vim-rspec
+get_bundle jgdavey      tslime.vim
 
 vim -c 'call pathogen#helptags()|q'
