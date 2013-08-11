@@ -73,8 +73,6 @@ vmap <silent> <leader>x :!tidy -qi -raw -xml<CR>:se filetype=xml<CR>
 " run selection in bash
 vmap <leader>rs :!bash <CR>
 
-nnoremap <leader>a :Ag
-
 "Ctags make the world a better place
 ""Based on code from https://github.com/spicycode/Vimlander-2-The-Quickening
 " Add RebuildTagsFile function/command
@@ -149,30 +147,31 @@ map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-Right> :wincmd l<CR>
 map <silent> <C-Z> :retab<CR> :Trim<CR>
 
-" command-t mappings
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
-map <leader>gd :CommandTFlush<cr>\|:CommandT app/decorators<cr>
-map <leader>gi :CommandTFlush<cr>\|:CommandT app/infrastructure<cr>
-map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
-map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
 
-" shortcut to open new tab and CommandT
-nmap <leader>gn :call NewTabAndCommandT()<cr>
-function! NewTabAndCommandT()
-  :tabnew
-  :CommandT
-endfunction
+  nnoremap <leader>a :Ag
 
-" shortcut for a new tab and Ag
-nmap <leader>n :call NewTabAndAg()<cr>
-function! NewTabAndAg()
-  :tabnew
-  :Ag
-endfunction
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  map <leader>gn :CtrlP<cr>
+  map <leader>gv :CtrlP app/views<cr>
+  map <leader>gc :CtrlP app/controllers<cr>
+  map <leader>gm :CtrlP app/models<cr>
+  map <leader>gh :CtrlP app/helpers<cr>
+  map <leader>gd :CtrlP app/decorators<cr>
+  map <leader>gi :CtrlP app/infrastructure<cr>
+  map <leader>gl :CtrlP lib<cr>
+  map <leader>gp :CtrlP public<cr>
+  map <leader>gs :CtrlP public/stylesheets<cr>
+
+  " shortcut for a new tab and Ag
+  nmap <leader>n :call NewTabAndAg()<cr>
+  function! NewTabAndAg()
+    :tabnew
+    :Ag
+  endfunction
+endif
 
 " rails specific mappings
 map <leader>gr :topleft :split config/routes.rb<cr>
