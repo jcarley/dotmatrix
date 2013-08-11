@@ -153,6 +153,8 @@ if executable('ag')
   nnoremap <leader>a :Ag
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+  let g:ctrlp_tabpage_position = 'ac'
 
   map <leader>gn :CtrlP<cr>
   map <leader>gv :CtrlP app/views<cr>
