@@ -21,6 +21,7 @@
   tr = log --graph --oneline --decorate --color
   tree = log --graph --oneline --decorate --color --all
   tweak = commit --amend -C HEAD
+  glog =  log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --
   unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
   unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
 [color]
