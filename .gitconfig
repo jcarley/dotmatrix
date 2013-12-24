@@ -74,3 +74,5 @@
   helper = osxkeychain
 [mergetool]
 	keepBackup = false
+[init]
+	templatedir = ~/.git_template
