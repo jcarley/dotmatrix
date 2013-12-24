@@ -12,6 +12,8 @@ map ; :
 
 noremap ;; ;
 
+nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
+
 syntax on
 set t_Co=256
 set background=dark
@@ -125,6 +127,7 @@ nnoremap <leader><space> :noh<cr>  " remove highlight from search matches
 map <F2> :PBCopy<cr>
 "Toggle between paste and nopaste, shows which one is active
 map <F3> :set paste!\|set paste?<cr>
+
 set clipboard=unnamed
 xnoremap p pgvy
 
@@ -203,6 +206,8 @@ map <silent> <D-9> :tabn 9<CR>
 map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
 let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("be zeus rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
