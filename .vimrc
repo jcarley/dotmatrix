@@ -153,7 +153,7 @@ map <silent> <C-Z> :retab<CR> :Trim<CR>
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
-  nnoremap <leader>a :Ag
+  " nnoremap <leader>a :Ag
 
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
   let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
@@ -213,6 +213,10 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
+nmap <leader>g :Tmux go test<CR>
+
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
+
+
