@@ -1,5 +1,3 @@
-This is the Bendyworks standard config.
-
 ## Setup:
 
 1. git clone this project

@@ -216,10 +216,6 @@ map <leader>a :call RunAllSpecs()<CR>
 " Run Go tests
 nmap <leader>g :Tmux go test<CR>
 
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
-
 function! MakeRspecFileIfMissing()
 ruby << EOF
   class MakesRspecFileIfMissing
@@ -265,4 +261,8 @@ endfunction
 map <leader>grs :call MakeRspecFileIfMissing()<CR>
 
 
+
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
 
