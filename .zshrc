@@ -40,7 +40,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git-flow git ruby sublime brew vagrant postgres redis-cli bundler golang)
+plugins=(ruby sublime brew vagrant postgres redis-cli bundler golang git git-flow git-extras)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
