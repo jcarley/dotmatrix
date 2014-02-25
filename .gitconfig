@@ -12,6 +12,7 @@
   list = log --oneline --color --decorate
   li = log --oneline --color
   ls = log --stat
+  changed = diff-tree --no-commit-id --name-only -r HEAD
   me = merge --no-ff
   pruneremote = remote prune origin
   put = push origin HEAD

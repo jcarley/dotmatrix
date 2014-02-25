@@ -213,10 +213,56 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
+" Run Go tests
 nmap <leader>g :Tmux go test<CR>
+
+function! MakeRspecFileIfMissing()
+ruby << EOF
+  class MakesRspecFileIfMissing
+    def self.for(buffer)
+      if spec_file?(buffer) || already_exists?(spec_for_buffer(buffer))
+        puts "Spec already exists"
+        return
+      end
+
+      # puts "going to make #{directory_for_spec(buffer)}"
+      # puts "going to make #{spec_for_buffer(buffer)}"
+      system 'mkdir', '-p', directory_for_spec(buffer)
+      File.open(spec_for_buffer(buffer), File::WRONLY|File::CREAT|File::EXCL) do |file|
+        file.write "require 'spec_helper'"
+      end
+    end
+
+    private
+    def self.spec_file?(file)
+      file.match(/.*_spec.rb$/)
+    end
+
+    def self.already_exists?(b)
+      File.exists?(b)
+    end
+
+    def self.spec_for_buffer(b)
+      spec_buffer = b.sub('/app/', '/spec/')
+      spec_buffer.sub!('/lib/', '/spec/lib/')
+      spec_buffer.sub!('.rb', '_spec.rb')
+      return spec_buffer
+    end
+
+    def self.directory_for_spec(b)
+      File.dirname(self.spec_for_buffer(b))
+    end
+  end
+  buffer = VIM::Buffer.current.name
+  MakesRspecFileIfMissing.for(buffer)
+EOF
+endfunction
+" command! -nargs=0 MakeRspecFileIfMissing call MakeRspecFileIfMissing()
+map <leader>grs :call MakeRspecFileIfMissing()<CR>
+
+
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
-
 

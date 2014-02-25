@@ -1,5 +1,3 @@
-This is the Bendyworks standard config.
-
 ## Setup:
 
 1. git clone this project
@@ -10,3 +8,6 @@ This is the Bendyworks standard config.
 ##  Gotchas:
 
 For git completion, make sure you've run `brew install bash-completion` and sourced ~/.bashrc
+
+## Setup Effortless Ctags with Git
+http://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
