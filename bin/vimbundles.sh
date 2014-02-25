@@ -53,6 +53,6 @@ get_bundle jnwhiteh     vim-golang
 get_bundle thoughtbot   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
-get_bundle jnwhiteh     vim-golang
+get_bundle Blackrush    vim-gocode
 
 vim -c 'call pathogen#helptags()|q'
