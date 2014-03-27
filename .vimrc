@@ -30,6 +30,8 @@ if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
 endif
 
+let g:airline_theme='jellybeans'
+
 set autoindent
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
@@ -205,9 +207,9 @@ map <silent> <D-9> :tabn 9<CR>
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
 " let g:rspec_command = 'call Send_to_Tmux("be zeus rspec {spec}\n")'
-" let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
@@ -215,6 +217,11 @@ map <leader>a :call RunAllSpecs()<CR>
 
 " Run Go tests
 nmap <leader>g :Tmux go test<CR>
+
+" vertical line indentation
+let g:indentLine_color_term = 256
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '┆'
 
 function! MakeRspecFileIfMissing()
 ruby << EOF
@@ -258,7 +265,7 @@ ruby << EOF
 EOF
 endfunction
 " command! -nargs=0 MakeRspecFileIfMissing call MakeRspecFileIfMissing()
-map <leader>grs :call MakeRspecFileIfMissing()<CR>
+map <leader>grs :call MakeRspecFileIfMissing()<CR> :A<CR>
 
 
 
