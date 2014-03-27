@@ -205,16 +205,16 @@ map <silent> <D-9> :tabn 9<CR>
 " Switch from ruby 1.8 hash to ruby 1.9 hash
 map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
-let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
+" let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
 " let g:rspec_command = 'call Send_to_Tmux("be zeus rspec {spec}\n")'
-" let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
 " Run Go tests
-nmap <leader>g :Tmux go test<CR>
+nmap <leader>got :Tmux go test<CR>
 
 function! MakeRspecFileIfMissing()
 ruby << EOF
