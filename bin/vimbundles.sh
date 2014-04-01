@@ -20,7 +20,6 @@ get_bundle jcarley      vim-colorschemes
 get_bundle godlygeek    tabular
 get_bundle gregsexton   gitv
 get_bundle jgdavey      vim-blockle
-# get_bundle jgdavey      vim-railscasts
 get_bundle kchmck       vim-coffee-script
 get_bundle leshill      vim-json
 get_bundle rking        ag.vim
@@ -52,9 +51,10 @@ get_bundle skalnik      vim-vroom
 get_bundle thoughtbot   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
-get_bundle Blackrush    vim-gocode
 get_bundle bling        vim-airline
-get_bundle dgryski      vim-godef
+get_bundle fatih        vim-go
+# get_bundle Blackrush    vim-gocode
+# get_bundle dgryski      vim-godef
 
 # The follow are for java development
 get_bundle SirVer       ultisnips

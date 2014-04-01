@@ -43,7 +43,6 @@ alias cpuinfo='less /proc/cpuinfo' ##
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
-
 # git aliases
 alias gap='git add -p'
 alias gbnm='git branch --no-merged'
@@ -55,6 +54,17 @@ alias vd='vagrant destroy'
 # cucmber aliases
 alias cfs='bundle exec cucumber -f stepdefs'
 alias cfu='bundle exec cucumber --format usage'
+
+# golang aliases
+alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
+
+function candidate_connect() {
+  ssh -i ~/.ssh/esp_candidate.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
+}
+
+function production_connect() {
+  ssh -i ~/.ssh/esp_gyi_production.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
+}
 
 alias candidate_list="esp nimbus -e candidate -c list"
 alias candidate_instances="esp nimbus -e candidate -c list_instances -t app -n"
