@@ -218,6 +218,8 @@ map <leader>a :call RunAllSpecs()<CR>
 " Run Go tests
 nmap <leader>got :Tmux go test<CR>
 
+let g:go_fmt_command = "gofmt -tabs=false -tabwidth=2"
+
 " vertical line indentation
 let g:indentLine_color_term = 256
 let g:indentLine_color_gui = '#09AA08'
