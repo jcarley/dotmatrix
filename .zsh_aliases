@@ -43,14 +43,18 @@ alias cpuinfo='less /proc/cpuinfo' ##
 ## get GPU ram on desktop / laptop##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
-
 # git aliases
 alias gap='git add -p'
 alias gbnm='git branch --no-merged'
 
-# vagrant aliases
+# golang aliases
+alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
+
+# vagrant
 alias v='vagrant'
+alias vu='vagrant up'
 alias vd='vagrant destroy'
+alias vs='vagrant status'
 
 # cucmber aliases
 alias cfs='bundle exec cucumber -f stepdefs'

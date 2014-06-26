@@ -19,18 +19,18 @@ set t_Co=256
 set background=dark
 colorscheme jellybeans-joel
 " colorscheme grb256
-" colorscheme railscasts
-" colorscheme railscasts2
 " colorscheme darkburn
 " colorscheme twilight256
 " colorscheme twilight
 filetype plugin indent on
 
+" let g:airline_theme = 'jellybeans'
+let g:airline_theme = 'powerlineish'
+
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
 endif
 
-let g:airline_theme='jellybeans'
 
 set autoindent
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
@@ -217,6 +217,8 @@ map <leader>a :call RunAllSpecs()<CR>
 
 " Run Go tests
 nmap <leader>got :Tmux go test<CR>
+let g:godef_split=2
+let g:godef_same_file_in_same_window=1
 
 " vertical line indentation
 let g:indentLine_color_term = 256
