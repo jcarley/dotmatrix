@@ -220,6 +220,8 @@ nmap <leader>got :Tmux go test<CR>
 let g:godef_split=2
 let g:godef_same_file_in_same_window=1
 
+let g:go_fmt_command = "gofmt -tabs=false -tabwidth=2"
+
 " vertical line indentation
 let g:indentLine_color_term = 256
 let g:indentLine_color_gui = '#09AA08'

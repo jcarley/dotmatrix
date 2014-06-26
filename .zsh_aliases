@@ -16,6 +16,7 @@ alias fixdirs="find $1 -type d -exec chmod 755 {} +"
 alias fixfiles="ag $1 -l --nocolor -v -g "" | xargs -o chmod 644"
 
 alias path='echo -e ${PATH//:/\\n}'
+
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'
 # Do not wait interval 1 second, go fast #
@@ -60,16 +61,65 @@ alias vs='vagrant status'
 alias cfs='bundle exec cucumber -f stepdefs'
 alias cfu='bundle exec cucumber --format usage'
 
+# golang aliases
+alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
+
+function candidate_connect() {
+  ssh -i ~/.ssh/esp_candidate.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
+}
+
+function production_connect() {
+  ssh -i ~/.ssh/esp_gyi_production.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
+}
+
+# alias candidate_list="esp nimbus -e candidate -c list"
+# alias candidate_instances="esp nimbus -e candidate -c instances -t submission -n"
+# alias candidate_submission_destroy="esp nimbus -e candidate -c destroy -t submission -n"
+# alias candidate_submission_create="esp nimbus -e candidate -c create -t submission -n"
+# alias candidate_outputs="esp nimbus -e candidate -c outputs"
+# alias candidate_update_dns="esp nimbus -e candidate -c change_dns -d candidate.espaws.com -t submission -n"
+
+# alias candidate_instances="esp nimbus -e candidate -c instances -t ice -n"
+# alias candidate_ice_destroy="esp nimbus -e candidate -c destroy -t ice -n"
+# alias candidate_ice_create="esp nimbus -e candidate -c create -t ice -n"
+# alias candidate_outputs="esp nimbus -e candidate -c outputs"
+# alias candidate_update_dns="esp nimbus -e candidate -c change_dns -d candidate.espaws.com -t ice -n"
+
+# alias production_list="esp nimbus -e prod -c list"
+# alias production_instances="esp nimbus -e prod -c list_instances -t app -n"
+# alias production_app_destroy="esp nimbus -e prod -c destroy -t app -n"
+# alias production_app_create="esp nimbus -e prod -c create -t app -n"
+# alias production_outputs="esp nimbus -e prod -c outputs"
+# alias production_update_dns="esp nimbus -e prod -c change_dns -d www.espaws.com -t app -n"
+
+
+
 alias candidate_list="esp nimbus -e candidate -c list"
-alias candidate_instances="esp nimbus -e candidate -c list_instances -t app -n"
-alias candidate_app_destroy="esp nimbus -e candidate -c destroy -t app -n"
-alias candidate_app_create="esp nimbus -e candidate -c create -t app -n"
+alias candidate_ice_instances="esp nimbus -e candidate -c instances -t ice -n"
+alias candidate_sub_instances="esp nimbus -e candidate -c instances -t submission -n"
+
+alias candidate_ice_destroy="esp nimbus -e candidate -c destroy -t ice -n"
+alias candidate_ice_create="esp nimbus -e candidate -c create -t ice -n"
+alias candidate_sub_destroy="esp nimbus -e candidate -c destroy -t submission -n"
+alias candidate_sub_create="esp nimbus -e candidate -c create -t submission -n"
+
 alias candidate_outputs="esp nimbus -e candidate -c outputs"
-alias candidate_update_dns="esp nimbus -e candidate -c change_dns -d candidate.espaws.com -t app -n"
+
+alias candidate_ice_update_dns="esp nimbus -e candidate -c change_dns -d candidate-ice.espaws.com -t ice -n"
+alias candidate_sub_update_dns="esp nimbus -e candidate -c change_dns -d candidate.espaws.com -t submission -n"
+
+alias production_sub_destroy="esp nimbus -e prod -c destroy -t submission -n"
+alias production_sub_create="esp nimbus -e prod -c create -t submission -n"
+alias production_sub_update_dns="esp nimbus -e prod -c change_dns -d www.espaws.com -t submission -n"
+
+alias production_ice_destroy="esp nimbus -e prod -c destroy -t ice -n"
+alias production_ice_create="esp nimbus -e prod -c create -t ice -n"
+alias production_ice_update_dns="esp nimbus -e prod -c change_dns -d www.espaws.com -t ice -n"
 
 alias production_list="esp nimbus -e prod -c list"
-alias production_instances="esp nimbus -e prod -c list_instances -t app -n"
-alias production_app_destroy="esp nimbus -e prod -c destroy -t app -n"
-alias production_app_create="esp nimbus -e prod -c create -t app -n"
+
+alias production_sub_instances="esp nimbus -e prod -c instances -t submisison -n"
+alias production_ice_instances="esp nimbus -e prod -c instances -t ice -n"
 alias production_outputs="esp nimbus -e prod -c outputs"
-alias production_update_dns="esp nimbus -e prod -c change_dns -d www.espaws.com -t app -n"
+
+

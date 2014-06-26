@@ -51,9 +51,9 @@ get_bundle skalnik      vim-vroom
 get_bundle thoughtbot   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
-get_bundle Blackrush    vim-gocode
-get_bundle dgryski      vim-godef
-
+get_bundle fatih        vim-go
+# get_bundle Blackrush    vim-gocode
+# get_bundle dgryski      vim-godef
 get_bundle bling        vim-airline
 
 # The follow are for java development
