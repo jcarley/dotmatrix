@@ -55,6 +55,8 @@ get_bundle fatih        vim-go
 # get_bundle Blackrush    vim-gocode
 # get_bundle dgryski      vim-godef
 get_bundle bling        vim-airline
+get_bundle Shougo       neocomplete.vim
+
 
 # The follow are for java development
 get_bundle SirVer       ultisnips
