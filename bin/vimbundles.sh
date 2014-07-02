@@ -32,7 +32,7 @@ get_bundle tpope        vim-cucumber
 get_bundle tpope        vim-endwise
 get_bundle tpope        vim-fugitive
 get_bundle tpope        vim-git
-get_bundle tpope        vim-haml
+# get_bundle tpope        vim-haml
 get_bundle tpope        vim-markdown
 get_bundle tpope        vim-pathogen
 get_bundle tpope        vim-ragtag
@@ -52,16 +52,14 @@ get_bundle thoughtbot   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
 get_bundle fatih        vim-go
-# get_bundle Blackrush    vim-gocode
-# get_bundle dgryski      vim-godef
 get_bundle bling        vim-airline
 get_bundle Shougo       neocomplete.vim
 
 
 # The follow are for java development
-get_bundle SirVer       ultisnips
+# get_bundle SirVer       ultisnips
 get_bundle Yggdroot     indentLine
-get_bundle Raimondi     delimitMate
+# get_bundle Raimondi     delimitMate
 
 vim -c 'call pathogen#helptags()|q'
 
