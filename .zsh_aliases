@@ -16,6 +16,7 @@ alias fixdirs="find $1 -type d -exec chmod 755 {} +"
 alias fixfiles="ag $1 -l --nocolor -v -g "" | xargs -o chmod 644"
 
 alias path='echo -e ${PATH//:/\\n}'
+function mcd() { mkdir -p $1 && cd $1 }
 
 # Stop after sending count ECHO_REQUEST packets #
 alias ping='ping -c 5'

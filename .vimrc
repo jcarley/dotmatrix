@@ -209,7 +209,7 @@ map <silent> <C-H> :%s/:\(\w*\)\s*=>\s*\(\w*\)/\1: \2/g<CR>
 
 " let g:rspec_command = 'call Send_to_Tmux("zeus rspec {spec}\n")'
 " let g:rspec_command = 'call Send_to_Tmux("be zeus rspec {spec}\n")'
-let g:rspec_command = 'call Send_to_Tmux("be rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("bundle exec rspec {spec}\n")'
 map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
