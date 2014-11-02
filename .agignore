@@ -3,6 +3,9 @@
 vendor/bundle
 vendor/getty
 vendor/assets
+bin
+.git
+cassettes
 
 # Ignore nohup
 nohup.out

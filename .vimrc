@@ -31,7 +31,6 @@ if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
 endif
 
-
 set autoindent
 set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
