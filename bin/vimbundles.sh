@@ -55,6 +55,7 @@ get_bundle fatih        vim-go
 get_bundle bling        vim-airline
 get_bundle Shougo       neocomplete.vim
 get_bundle honza        dockerfile.vim
+get_bundle elixir-lang  vim-elixir
 
 # The follow are for java development
 # get_bundle SirVer       ultisnips
