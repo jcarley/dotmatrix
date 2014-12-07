@@ -63,9 +63,6 @@ alias vs='vagrant status'
 alias cfs='bundle exec cucumber -f stepdefs'
 alias cfu='bundle exec cucumber --format usage'
 
-# golang aliases
-alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
-
 function candidate_connect() {
   ssh -i ~/.ssh/esp_candidate.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
 }
