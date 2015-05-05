@@ -15,6 +15,8 @@ noremap ;; ;
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
 
 syntax on
+
+set synmaxcol=200
 set t_Co=256
 set background=dark
 colorscheme jellybeans-joel

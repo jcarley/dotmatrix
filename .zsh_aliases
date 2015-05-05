@@ -46,8 +46,12 @@ alias cpuinfo='less /proc/cpuinfo' ##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 # git aliases
+alias gt="git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
 alias gap='git add -p'
 alias gbnm='git branch --no-merged'
+# This function is equal to the following command
+# git diff feature/us90750_update_metadata_fields develop -- app/models/getty/editorial_video_specific.rb
+ggdiff() { git diff $1 $(current_branch) -- $2 }
 
 # golang aliases
 alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
