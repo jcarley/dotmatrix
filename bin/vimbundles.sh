@@ -23,7 +23,6 @@ get_bundle jgdavey      vim-blockle
 get_bundle kchmck       vim-coffee-script
 get_bundle leshill      vim-json
 get_bundle rking        ag.vim
-get_bundle pangloss     vim-javascript
 get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
 get_bundle therubymug   vim-pyte
@@ -53,10 +52,13 @@ get_bundle thoughtbot   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
 get_bundle fatih        vim-go
-get_bundle bling        vim-airline
+# get_bundle bling        vim-airline
+get_bundle powerline    powerline
 get_bundle Shougo       neocomplete.vim
 get_bundle honza        dockerfile.vim
 get_bundle elixir-lang  vim-elixir
+get_bundle pangloss     vim-javascript
+get_bundle jelera       vim-javascript-syntax
 
 # The follow are for java development
 # get_bundle SirVer       ultisnips

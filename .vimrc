@@ -26,8 +26,14 @@ colorscheme jellybeans-joel
 " colorscheme twilight
 filetype plugin indent on
 
+
+set rtp+=/Users/jcarley/.vimbundles/powerline/powerline/bindings/vim
+
 " let g:airline_theme = 'jellybeans'
-let g:airline_theme = 'powerlineish'
+" let g:airline_theme = 'powerlineish'
+" let g:airline_powerline_fonts = 0
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
 
 if $TERM == '^\%(screen\|xterm-color\)$' && t_Co == 8
   set t_Co=256
