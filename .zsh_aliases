@@ -63,6 +63,11 @@ alias vu='vagrant up'
 alias vd='vagrant destroy'
 alias vs='vagrant status'
 
+# docker and friends
+alias d='docker'
+alias dc='docker-compose'
+alias dm='docker-machine'
+
 # cucmber aliases
 alias cfs='bundle exec cucumber -f stepdefs'
 alias cfu='bundle exec cucumber --format usage'
