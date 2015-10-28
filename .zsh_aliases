@@ -63,11 +63,6 @@ alias vu='vagrant up'
 alias vd='vagrant destroy'
 alias vs='vagrant status'
 
-# docker and friends
-alias d='docker'
-alias dc='docker-compose'
-alias dm='docker-machine'
-
 # cucmber aliases
 alias cfs='bundle exec cucumber -f stepdefs'
 alias cfu='bundle exec cucumber --format usage'
@@ -86,6 +81,11 @@ esp_aliases="$HOME/dev/esp/scripts/share/aliases"
 # ------------------------------------
 # Docker alias and function
 # ------------------------------------
+
+# docker and friends
+alias d='docker'
+alias dc='docker-compose'
+alias dm='docker-machine'
 
 # Get latest container ID
 alias dl="docker ps -l -q"
@@ -123,8 +123,11 @@ alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 # Remove all images
 dri() { docker rmi $(docker images -q); }
 
-# Dockerfile build, e.g., $dbu tcnksm/test 
+# Dockerfile build, e.g., $dbu tcnksm/test
 dbu() { docker build -t=$1 .; }
+
+# Clears all the submission containers
+alias drms='docker rm -v $(docker ps -aq -f labels=com.getty.description=submission -f status=exited)'
 
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
