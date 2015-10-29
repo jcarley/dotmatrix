@@ -129,5 +129,8 @@ dbu() { docker build -t=$1 .; }
 # Clears all the submission containers
 alias drms='docker rm -v $(docker ps -aq -f labels=com.getty.description=submission -f status=exited)'
 
+# Monitor containers
+alias dwatch='watch -n0.5 docker stats --no-stream=true `docker ps --format "{{.Names}}"| sort`'
+
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
