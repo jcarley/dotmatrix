@@ -48,7 +48,7 @@ get_bundle wgibbs       vim-irblack
 get_bundle mortice      pbcopy.vim
 get_bundle puppetlabs   puppet-syntax-vim
 get_bundle skalnik      vim-vroom
-get_bundle thoughtbot   vim-rspec
+get_bundle jcarley   vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
 get_bundle fatih        vim-go
