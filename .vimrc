@@ -222,6 +222,8 @@ map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
 
+" React jsx support
+let g:jsx_ext_required = 0
 
 " vertical line indentation
 let g:indentLine_color_term = 256
