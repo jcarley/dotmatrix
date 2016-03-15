@@ -5,6 +5,7 @@
   cl = clone
   co = checkout
   cp = cherry-pick
+  contains = branch --contains
   df = diff -a -w
   fuckit = reset --hard
   dw = diff -a -w --word-diff
