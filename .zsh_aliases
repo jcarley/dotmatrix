@@ -12,6 +12,11 @@ function ags() {
   ag --line-numbers --stats $SEARCHTERM $DIR
 }
 
+function gotest() {
+  local PACKAGE=$1
+  go test -v $PACKAGE | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/''
+}
+
 alias fixdirs="find $1 -type d -exec chmod 755 {} +"
 alias fixfiles="ag $1 -l --nocolor -v -g "" | xargs -o chmod 644"
 
