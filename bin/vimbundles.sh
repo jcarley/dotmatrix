@@ -48,7 +48,7 @@ get_bundle wgibbs       vim-irblack
 get_bundle mortice      pbcopy.vim
 get_bundle puppetlabs   puppet-syntax-vim
 get_bundle skalnik      vim-vroom
-get_bundle jcarley   vim-rspec
+get_bundle jcarley      vim-rspec
 get_bundle jgdavey      tslime.vim
 get_bundle kien         ctrlp.vim
 get_bundle fatih        vim-go
@@ -58,7 +58,7 @@ get_bundle Shougo       neocomplete.vim
 get_bundle honza        dockerfile.vim
 get_bundle elixir-lang  vim-elixir
 get_bundle pangloss     vim-javascript
-get_bundle jelera       vim-javascript-syntax
+# get_bundle jelera       vim-javascript-syntax
 get_bundle mxw          vim-jsx
 get_bundle derekwyatt   vim-scala
 
