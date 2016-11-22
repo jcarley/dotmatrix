@@ -13,7 +13,6 @@ map ; :
 noremap ;; ;
 
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
-
 syntax on
 
 set synmaxcol=200

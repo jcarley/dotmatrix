@@ -58,9 +58,10 @@ alias gbnm='git branch --no-merged'
 # git diff feature/us90750_update_metadata_fields develop -- app/models/getty/editorial_video_specific.rb
 ggdiff() { git diff $1 $(current_branch) -- $2 }
 
-# golang aliases
+# project group aliases
 alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
 alias espprojects="cd ${HOME}/dev/esp"
+alias javascriptprojects="cd ${HOME}/Projects/javascripts"
 
 # vagrant
 alias v='vagrant'
@@ -80,6 +81,9 @@ function production_connect() {
   ssh -i ~/.ssh/esp_gyi_production.pem -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o IdentitiesOnly=yes -o Compression=yes ubuntu@$1
 }
 
+# -------------------------------------------
+# ESP Production alias and function (Puppet)
+# -------------------------------------------
 esp_aliases="$HOME/dev/esp/scripts/share/aliases"
 [[ ! -a $esp_aliases ]] || source $esp_aliases
 
@@ -139,3 +143,6 @@ alias dwatch='watch -n0.5 docker stats --no-stream=true `docker ps --format "{{.
 
 # Show all alias related docker
 dalias() { alias | grep 'docker' | sed "s/^\([^=]*\)=\(.*\)/\1 => \2/"| sed "s/['|\']//g" | sort; }
+
+
+
