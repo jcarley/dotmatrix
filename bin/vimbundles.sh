@@ -57,6 +57,7 @@ get_bundle powerline    powerline
 get_bundle Shougo       neocomplete.vim
 get_bundle honza        dockerfile.vim
 get_bundle elixir-lang  vim-elixir
+get_bundle andyl        vim-textobj-elixir
 get_bundle pangloss     vim-javascript
 # get_bundle jelera       vim-javascript-syntax
 get_bundle mxw          vim-jsx
