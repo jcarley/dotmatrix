@@ -74,7 +74,7 @@
 	name = jcarley
 	email = jcarley@gettyimages.com
 [http]
-	sslVerify = false
+	sslVerify = true
 [credential]
   helper = osxkeychain
 [mergetool]
