@@ -68,6 +68,7 @@ set wildignore+=*.o,*.obj,.git,tmp/**,public/uploads/**
 au! BufRead,BufNewFile *.rb
 au! BufRead,BufNewFile *.xml
 au BufNewFile,BufRead *.scss set filetype=sass
+au BufNewFile,BufRead *.ad,*.asciidoc,*.asc set filetype=asciidoc
 
 " CocoaPods
 au BufNewFile,BufRead Podfile,*.podspec      set filetype=ruby

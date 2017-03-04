@@ -59,9 +59,17 @@ alias gbnm='git branch --no-merged'
 ggdiff() { git diff $1 $(current_branch) -- $2 }
 
 # project group aliases
-alias goprojects="cd ${GOPATH}/src/github.com/jcarley"
+alias jsprojects="cd ${HOME}/Projects/javascripts"
 alias espprojects="cd ${HOME}/dev/esp"
-alias javascriptprojects="cd ${HOME}/Projects/javascripts"
+
+function goprojects() {
+  case $1 in
+    gh ) FOLDER=github.com;;
+    bb ) FOLDER=bitbucket.org;;
+    *) FOLDER=github.com;;
+  esac
+  cd ${GOPATH}/src/$FOLDER/jcarley
+}
 
 # vagrant
 alias v='vagrant'
