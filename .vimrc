@@ -13,6 +13,10 @@ map ; :
 noremap ;; ;
 
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
+
+" Add a new line in normal using Ctrl-J
+nnoremap <NL> i<CR><ESC>
+
 syntax on
 
 set synmaxcol=200
