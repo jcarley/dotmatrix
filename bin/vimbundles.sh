@@ -63,6 +63,7 @@ get_bundle pangloss     vim-javascript
 # get_bundle jelera       vim-javascript-syntax
 get_bundle mxw          vim-jsx
 get_bundle derekwyatt   vim-scala
+get_bundle octol        vim-cpp-enhanced-highlight
 
 # The follow are for java development
 # get_bundle SirVer       ultisnips

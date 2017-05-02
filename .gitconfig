@@ -21,6 +21,7 @@
   ri = rebase --interactive
   squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
   st = status
+  tagcommit = rev-list -n 1
   tr = log --graph --oneline --decorate --color
   tree = log --graph --oneline --decorate --color --all
   tweak = commit --amend -C HEAD

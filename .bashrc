@@ -4,5 +4,3 @@ export PATH=~/bin:$PATH
 
 [ -f "$HOME/.bash_profile.local" ] && . "$HOME/.bash_profile.local"
 [ -f "$HOME/.bash_aliases" ] && . "$HOME/.bash_aliases"
-
-export NODE_ENV=development
