@@ -5,6 +5,14 @@ alias conflicts="grep -n -r '<<<<' *"
 alias myip="ifconfig en1 | grep inet | awk '{ print $2 }'"
 alias lsof="lsof -i -n -P"
 
+# command line toolkit
+function sep() {
+  printf '\n%*s\n' "$(tput cols)" '' | tr ' ' -
+}
+
+# brew
+alias upgrayedd='brew upgrade && brew cleanup'
+
 # silver searcher
 function ags() {
   local DIR=$PWD
@@ -58,8 +66,19 @@ alias gbnm='git branch --no-merged'
 # git diff feature/us90750_update_metadata_fields develop -- app/models/getty/editorial_video_specific.rb
 ggdiff() { git diff $1 $(current_branch) -- $2 }
 
+function ggdeltag() {
+
+  if [ -z "$1" ]; then
+    echo -e "$0 deletes a tag from the local and remote git repo.\n"
+    echo -e "usage: $0 <TAG>"
+    return
+  fi
+
+  git tag -d $1 && git push origin :refs/tags/$1
+}
+
 # project group aliases
-alias jsprojects="cd ${HOME}/Projects/javascripts"
+# alias jsprojects="cd ${HOME}/Projects/javascripts"
 alias espprojects="cd ${HOME}/dev/esp"
 
 function goprojects() {
@@ -69,6 +88,14 @@ function goprojects() {
     *) FOLDER=github.com;;
   esac
   cd ${GOPATH}/src/$FOLDER/jcarley
+}
+
+function jsprojects() {
+  if [ -z "$1" ]; then
+    cd ${HOME}/Projects/javascripts
+  else
+    cd ${HOME}/Projects/javascripts/$1
+  fi
 }
 
 # vagrant
