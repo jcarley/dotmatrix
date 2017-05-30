@@ -21,7 +21,7 @@
   ri = rebase --interactive
   squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
   st = status
-  tagcommit = rev-list -n 1
+  tagcommit = rev-list -n 1 --abbrev-commit
   tr = log --graph --oneline --decorate --color
   tree = log --graph --oneline --decorate --color --all
   tweak = commit --amend -C HEAD
@@ -73,7 +73,7 @@
   enabled = true
 [user]
 	name = jcarley
-	email = jcarley@gettyimages.com
+	email = jeff.carley@gettyimages.com
 [http]
 	sslVerify = true
 [credential]
