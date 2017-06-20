@@ -78,8 +78,35 @@ function ggdeltag() {
 }
 
 # project group aliases
-# alias jsprojects="cd ${HOME}/Projects/javascripts"
-alias espprojects="cd ${HOME}/dev/esp"
+function espprojects() {
+  if [ -z "$1" ]; then
+    cd ${HOME}/dev/esp
+  else
+    cd ${HOME}/dev/esp/$1
+  fi
+}
+
+function _espprojects() {
+  local completions
+  completions="$(ls ${HOME}/dev/esp)"
+  reply=( "${(ps:\n:)completions}" )
+}
+compctl -K _espprojects espprojects
+
+function jsprojects() {
+  if [ -z "$1" ]; then
+    cd ${HOME}/Projects/javascripts
+  else
+    cd ${HOME}/Projects/javascripts/$1
+  fi
+}
+
+function _jsprojects() {
+  local completions
+  completions="$(ls ${HOME}/Projects/javascripts)"
+  reply=( "${(ps:\n:)completions}" )
+}
+compctl -K _jsprojects jsprojects
 
 function goprojects() {
   case $1 in
@@ -88,14 +115,6 @@ function goprojects() {
     *) FOLDER=github.com;;
   esac
   cd ${GOPATH}/src/$FOLDER/jcarley
-}
-
-function jsprojects() {
-  if [ -z "$1" ]; then
-    cd ${HOME}/Projects/javascripts
-  else
-    cd ${HOME}/Projects/javascripts/$1
-  fi
 }
 
 # vagrant
