@@ -64,6 +64,7 @@ get_bundle pangloss     vim-javascript
 get_bundle mxw          vim-jsx
 get_bundle derekwyatt   vim-scala
 get_bundle octol        vim-cpp-enhanced-highlight
+get_bundle ElmCast      elm-vim
 
 # The follow are for java development
 # get_bundle SirVer       ultisnips
