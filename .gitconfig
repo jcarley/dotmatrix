@@ -21,7 +21,7 @@
   ri = rebase --interactive
   squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
   st = status
-  tagcommit = rev-list -n 1
+  tagcommit = rev-list -n 1 --abbrev-commit
   tr = log --graph --oneline --decorate --color
   tree = log --graph --oneline --decorate --color --all
   tweak = commit --amend -C HEAD
@@ -39,32 +39,10 @@
   excludesfile = ~/.cvsignore
   editor = vim
   whitespace = warn
-[diff]
-  tool = vimdiff
-[difftool]
-  prompt = false
 [help]
   autocorrect = 10
 [interactive]
   singlekey = false
-[merge]
-  summary = true
-[merge "bundlelock"]
-  name = lock Gemfile
-  driver = bundle install
-[merge "bundle"]
-  name = bundle
-  driver = bundle
-[merge "railsschema"]
-  name = newer Rails schema version
-  driver = "ruby -e '\n\
-    system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
-    b = File.read(%(%A))\n\
-    b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
-      %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
-    end\n\
-    File.open(%(%A), %(w)) {|f| f.write(b)}\n\
-    exit 1 if b.include?(%(<)*%L)'"
 [push]
   default = tracking
 [rebase]
@@ -73,12 +51,12 @@
   enabled = true
 [user]
 	name = jcarley
-	email = jcarley@gettyimages.com
+	email = jeff.carley@gettyimages.com
 [http]
 	sslVerify = true
 [credential]
   helper = osxkeychain
-[mergetool]
-	keepBackup = false
 [init]
 	templatedir = ~/.git_template
+[mergetool]
+	keepBackup = true
