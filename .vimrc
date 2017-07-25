@@ -177,7 +177,7 @@ if executable('ag')
   map <leader>gc :CtrlP app/controllers<cr>
   map <leader>gm :CtrlP app/models<cr>
   map <leader>gh :CtrlP app/helpers<cr>
-  map <leader>gd :CtrlP app/decorators<cr>
+  " map <leader>gd :CtrlP app/decorators<cr>
   map <leader>gi :CtrlP app/infrastructure<cr>
   map <leader>gl :CtrlP lib<cr>
   map <leader>gp :CtrlP public<cr>
