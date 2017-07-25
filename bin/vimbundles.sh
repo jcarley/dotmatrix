@@ -35,14 +35,14 @@ get_bundle tpope        vim-git
 get_bundle tpope        vim-markdown
 get_bundle tpope        vim-pathogen
 get_bundle tpope        vim-ragtag
-get_bundle tpope        vim-rails
+# get_bundle tpope        vim-rails
 get_bundle tpope        vim-repeat
 get_bundle tpope        vim-speeddating
 get_bundle tpope        vim-surround
 get_bundle tpope        vim-unimpaired
 get_bundle slim-template vim-slim
 get_bundle vim-ruby     vim-ruby
-get_bundle ecomba       vim-ruby-refactoring
+# get_bundle ecomba       vim-ruby-refactoring
 get_bundle vim-scripts  bufkill.vim
 get_bundle wgibbs       vim-irblack
 get_bundle mortice      pbcopy.vim
