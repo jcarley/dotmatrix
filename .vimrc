@@ -12,6 +12,9 @@ map ; :
 
 noremap ;; ;
 
+"  Insert a line break without leaving command mode
+map <C-m> i<CR><Esc>h
+
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
 
 " Add a new line in normal using Ctrl-J

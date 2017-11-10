@@ -80,15 +80,15 @@ function ggdeltag() {
 # project group aliases
 function espprojects() {
   if [ -z "$1" ]; then
-    cd ${HOME}/dev/esp
+    cd ${HOME}/Projects/ruby/esp/
   else
-    cd ${HOME}/dev/esp/$1
+    cd ${HOME}/Projects/ruby/esp/$1
   fi
 }
 
 function _espprojects() {
   local completions
-  completions="$(ls ${HOME}/dev/esp)"
+  completions="$(ls ${HOME}/Projects/ruby/esp)"
   reply=( "${(ps:\n:)completions}" )
 }
 compctl -K _espprojects espprojects
@@ -138,7 +138,7 @@ function production_connect() {
 # -------------------------------------------
 # ESP Production alias and function (Puppet)
 # -------------------------------------------
-esp_aliases="$HOME/dev/esp/scripts/share/aliases"
+esp_aliases="$HOME/Projects/ruby/esp/scripts/share/aliases"
 [[ ! -a $esp_aliases ]] || source $esp_aliases
 
 # ------------------------------------
