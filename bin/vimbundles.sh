@@ -70,6 +70,7 @@ get_bundle posva        vim-vue
 # get_bundle SirVer       ultisnips
 get_bundle Yggdroot     indentLine
 # get_bundle Raimondi     delimitMate
+get_bundle hashivim     vim-terraform
 
 vim -c 'call pathogen#helptags()|q'
 
