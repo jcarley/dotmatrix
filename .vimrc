@@ -13,12 +13,13 @@ map ; :
 noremap ;; ;
 
 "  Insert a line break without leaving command mode
-map <C-m> i<CR><Esc>h
+" map <C-m> i<CR><Esc>h
+
+" Add a new line in normal using Ctrl-J
+" nnoremap <NL> i<CR><ESC>
 
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
 
-" Add a new line in normal using Ctrl-J
-nnoremap <NL> i<CR><ESC>
 
 syntax on
 
@@ -30,10 +31,13 @@ colorscheme jellybeans-joel
 " colorscheme darkburn
 " colorscheme twilight256
 " colorscheme twilight
-filetype plugin indent on
+
+" filetype plugin indent on
+filetype plugin on
 
 
-set rtp+=/Users/jcarley/.vimbundles/powerline/powerline/bindings/vim
+" set rtp+=/Users/jcarley/.vimbundles/powerline/powerline/bindings/vim
+let g:airline_powerline_fonts = 1
 
 " let g:airline_theme = 'jellybeans'
 " let g:airline_theme = 'powerlineish'
@@ -125,6 +129,15 @@ let NERDTreeShowHidden = 0
 let NERDTreeHijackNetrw = 1
 let NERDTreeIgnore=['\.$', '\~$']
 
+let g:NERDDefaultAlign = 'left'
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+" comment
+nmap \\ <plug>NERDCommenterToggle<CR>
+vmap \\ <plug>NERDCommenterToggle<CR>
+
 " clear search
 nmap <silent> ,/ :nohlsearch<CR>
 
@@ -147,13 +160,8 @@ map <F3> :set paste!\|set paste?<cr>
 set clipboard=unnamed
 xnoremap p pgvy
 
-
 " sudo save with w!!
 cmap w!! w !sudo tee % >/dev/null
-
-" comment
-nmap \\ <plug>NERDCommenterToggle<CR>
-vmap \\ <plug>NERDCommenterToggle<CR>
 
 " navigate windows
 map <silent> <C-h> :wincmd h<CR>
