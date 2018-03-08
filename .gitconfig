@@ -50,8 +50,8 @@
 [rerere]
   enabled = true
 [user]
-	name = jcarley
-	email = jeff.carley@gettyimages.com
+	name = Jeff Carley
+	email = jeff@datica.com
 [http]
 	sslVerify = true
 [credential]

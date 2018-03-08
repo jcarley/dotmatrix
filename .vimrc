@@ -20,6 +20,8 @@ noremap ;; ;
 
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
 
+map <silent> <C-w> bdw
+
 
 syntax on
 

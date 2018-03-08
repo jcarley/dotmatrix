@@ -36,6 +36,7 @@ get_bundle pangloss     vim-javascript
 get_bundle mxw          vim-jsx
 get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
+get_bundle saltstack    salt-vim
 
 ##### Extra nice to haves
 # get_bundle tpope        vim-git
