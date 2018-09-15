@@ -10,6 +10,8 @@ function sep() {
   printf '\n%*s\n' "$(tput cols)" '' | tr ' ' -
 }
 
+alias zoomsmash='sudo killall VDCAssistant'
+
 # brew
 alias upgrayedd='brew upgrade && brew cleanup'
 
@@ -46,11 +48,11 @@ alias httpdtest='sudo /usr/sbin/apachectl -t && /usr/sbin/apachectl -t -D DUMP_V
 ## pass options to free ##
 alias meminfo='free -m -l -t'
 ## get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias psmem='ps aux | sort -nr -k 4'
+alias psmem10='ps aux | sort -nr -k 4 | head -10'
 ## get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3'
-alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+alias pscpu='ps aux | sort -nr -k 3'
+alias pscpu10='ps aux | sort -nr -k 3 | head -10'
 ## Get server cpu info ##
 alias cpuinfo='lscpu'
 ## older system use /proc/cpuinfo ##
@@ -77,45 +79,36 @@ function ggdeltag() {
   git tag -d $1 && git push origin :refs/tags/$1
 }
 
-# project group aliases
-function espprojects() {
+function myprojects() {
   if [ -z "$1" ]; then
-    cd ${HOME}/Projects/ruby/esp/
+    cd ${HOME}/Projects/
   else
-    cd ${HOME}/Projects/ruby/esp/$1
+    cd $1
   fi
 }
 
-function _espprojects() {
+function _myprojects() {
   local completions
-  completions="$(ls ${HOME}/Projects/ruby/esp)"
+  completions="$(/Users/jcarley/Projects/python/pyprj/pyprj)"
   reply=( "${(ps:\n:)completions}" )
 }
-compctl -K _espprojects espprojects
+compctl -K _myprojects myprojects
 
-function jsprojects() {
-  if [ -z "$1" ]; then
-    cd ${HOME}/Projects/javascripts
-  else
-    cd ${HOME}/Projects/javascripts/$1
-  fi
-}
-
-function _jsprojects() {
-  local completions
-  completions="$(ls ${HOME}/Projects/javascripts)"
-  reply=( "${(ps:\n:)completions}" )
-}
-compctl -K _jsprojects jsprojects
 
 function goprojects() {
   case $1 in
-    gh ) FOLDER=github.com;;
-    bb ) FOLDER=bitbucket.org;;
+    gh ) FOLDER=github.com/jcarley;;
+    bb ) FOLDER=bitbucket.org/jcarley;;
+    dh ) FOLDER=github.com/daticahealth;;
     *) FOLDER=github.com;;
   esac
-  cd ${GOPATH}/src/$FOLDER/jcarley
+  cd ${GOPATH}/src/$FOLDER
 }
+
+alias ref='vim ~/Dropbox/Work/Datica/reference'
+
+# k8s aliases
+alias k='kubectl'
 
 # vagrant
 alias v='vagrant'

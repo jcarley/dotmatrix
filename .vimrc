@@ -20,7 +20,12 @@ noremap ;; ;
 
 nnoremap <leader>css :g#\({\n\)\@<=#.,/}/sort<cr>
 
-map <silent> <C-w> bdw
+map <silent> <C-q> bdw
+
+" allow pattern matching with special characters
+set magic
+" :s/,/,^M/g
+" To get the ^M character, type Control-v and hit Enter
 
 
 syntax on
@@ -129,7 +134,7 @@ let NERDTreeShowHidden = 0
 " Don't hijack NETRW
 " let NERDTreeHijackNetrw = 0
 let NERDTreeHijackNetrw = 1
-let NERDTreeIgnore=['\.$', '\~$']
+let NERDTreeIgnore=['\.$', '\~$', '__pycache__']
 
 let g:NERDDefaultAlign = 'left'
 let g:NERDSpaceDelims = 1

@@ -33,10 +33,12 @@ get_bundle posva        vim-vue
 get_bundle Yggdroot     indentLine
 get_bundle hashivim     vim-terraform
 get_bundle pangloss     vim-javascript
+get_bundle leshill      vim-json
 get_bundle mxw          vim-jsx
 get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
 get_bundle saltstack    salt-vim
+get_bundle buoto        gotests-vim
 
 ##### Extra nice to haves
 # get_bundle tpope        vim-git
@@ -46,7 +48,6 @@ get_bundle saltstack    salt-vim
 # get_bundle gregsexton   gitv
 # get_bundle jgdavey      vim-blockle
 # get_bundle kchmck       vim-coffee-script
-# get_bundle leshill      vim-json
 # get_bundle therubymug   vim-pyte
 # get_bundle tpope        vim-rails
 # get_bundle tpope        vim-abolish
