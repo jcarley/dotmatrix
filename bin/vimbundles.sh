@@ -39,6 +39,7 @@ get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
 get_bundle saltstack    salt-vim
 get_bundle buoto        gotests-vim
+get_bundle udalov       kotlin-vim
 
 ##### Extra nice to haves
 # get_bundle tpope        vim-git

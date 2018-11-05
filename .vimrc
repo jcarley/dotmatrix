@@ -181,6 +181,9 @@ map <silent> <C-l> :wincmd l<CR>
 map <silent> <C-Right> :wincmd l<CR>
 map <silent> <C-Z> :retab<CR> :Trim<CR>
 
+" format xml in current buffer
+map <leader>xf :%!xmllint --format -<cr> <leader><space> :noh<cr>
+
 if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
@@ -243,6 +246,7 @@ map <leader>t :call RunCurrentSpecFile()<CR>
 map <leader>s :call RunNearestSpec()<CR>
 map <leader>l :call RunLastSpec()<CR>
 map <leader>a :call RunAllSpecs()<CR>
+
 
 " React jsx support
 let g:jsx_ext_required = 0
