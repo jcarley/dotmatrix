@@ -252,7 +252,7 @@ map <leader>a :call RunAllSpecs()<CR>
 let g:jsx_ext_required = 0
 
 " vertical line indentation
-let g:indentLine_color_term = 256
+let g:indentLine_color_term = 255
 let g:indentLine_color_gui = '#09AA08'
 let g:indentLine_char = '┆'
 
