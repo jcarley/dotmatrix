@@ -33,6 +33,10 @@ syntax on
 set synmaxcol=200
 set t_Co=256
 set background=dark
+set termguicolors
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
 colorscheme jellybeans-joel
 " colorscheme grb256
 " colorscheme darkburn
@@ -252,8 +256,8 @@ map <leader>a :call RunAllSpecs()<CR>
 let g:jsx_ext_required = 0
 
 " vertical line indentation
-let g:indentLine_color_term = 255
-let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_color_term = 256
+let g:indentLine_color_gui = '#5e5e5e'
 let g:indentLine_char = '┆'
 
 function! MakeRspecFileIfMissing()
