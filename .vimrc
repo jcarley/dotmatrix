@@ -304,7 +304,8 @@ endfunction
 " command! -nargs=0 MakeRspecFileIfMissing call MakeRspecFileIfMissing()
 map <leader>grs :call MakeRspecFileIfMissing()<CR> :A<CR>
 
-
+" abbreviations
+iabbrev rmb require 'minitest/byebug'<Esc>F%s<c-o>:call getchar()<CR>
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
