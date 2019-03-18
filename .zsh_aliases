@@ -105,7 +105,8 @@ function goprojects() {
   cd ${GOPATH}/src/$FOLDER
 }
 
-alias ref='vim ~/Dropbox/Work/Datica/reference'
+alias ref='vim ~/Dropbox/Work/reference'
+alias abododev='cd /Users/jcarley/Projects/ruby/abodo-dev'
 
 # k8s aliases
 alias k='kubectl'

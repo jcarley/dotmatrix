@@ -44,3 +44,5 @@ if defined?(::Bundler)
     end
   end
 end
+
+IRB.conf[:SAVE_HISTORY] = 1000

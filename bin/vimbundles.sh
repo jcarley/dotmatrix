@@ -37,11 +37,13 @@ get_bundle leshill      vim-json
 get_bundle mxw          vim-jsx
 get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
-get_bundle saltstack    salt-vim
 get_bundle buoto        gotests-vim
 get_bundle udalov       kotlin-vim
 
 ##### Extra nice to haves
+# get_bundle saltstack    salt-vim
+# get_bundle dbakker      vim-projectroot
+# get_bundle hackhowtofaq vim-solargraph
 # get_bundle tpope        vim-git
 # get_bundle adamlowe     vim-slurper
 # get_bundle duff         vim-bufonly
