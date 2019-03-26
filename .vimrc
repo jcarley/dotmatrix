@@ -306,6 +306,7 @@ map <leader>grs :call MakeRspecFileIfMissing()<CR> :A<CR>
 
 " abbreviations
 iabbrev rmb require 'minitest/byebug'<Esc>F%s<c-o>:call getchar()<CR>
+iab <expr> dts strftime('%Y-%m-%d')
 
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
