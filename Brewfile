@@ -39,6 +39,9 @@ brew "tmux"
 brew "lua"
 brew "macvim", args: ["with-override-system-vim", "with-lua"]
 
+tap "homebrew/cask-fonts"
+cask "font-source-code-pro"
+
 tap "homebrew/cask"
 cask "google-chrome"
 cask "docker-toolbox"
