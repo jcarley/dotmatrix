@@ -1,0 +1,24 @@
+{
+  "useTaobaoRegistry": false,
+  "packageManager": "yarn",
+  "presets": {
+    "default-vue-app": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "prettier",
+          "lintOn": [
+            "save"
+          ]
+        },
+        "@vue/cli-plugin-unit-jest": {},
+        "@vue/cli-plugin-e2e-cypress": {}
+      },
+      "router": true,
+      "routerHistoryMode": false,
+      "vuex": true,
+      "cssPreprocessor": "node-sass"
+    }
+  }
+}
