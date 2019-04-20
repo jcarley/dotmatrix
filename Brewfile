@@ -37,14 +37,13 @@ brew "tmux-mem-cpu-load"
 brew "tmux"
 
 brew "lua"
-brew "macvim", args: ["with-override-system-vim", "with-lua"]
+brew "macvim"
 
 tap "homebrew/cask-fonts"
 cask "font-source-code-pro"
 
 tap "homebrew/cask"
 cask "google-chrome"
-cask "docker-toolbox"
 cask "alfred"
 cask "dropbox"
 cask "sizeup"
