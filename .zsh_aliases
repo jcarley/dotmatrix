@@ -106,10 +106,13 @@ function goprojects() {
 }
 
 alias ref='vim ~/Dropbox/Work/reference'
-alias abododev='cd /Users/jcarley/Projects/ruby/abodo-dev'
 
 # k8s aliases
 alias k='kubectl'
+
+# Buffalo aliases
+alias b='buffalo'
+alias bp='buffalo pop'
 
 # vagrant
 alias v='vagrant'
