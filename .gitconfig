@@ -51,7 +51,7 @@
   enabled = true
 [user]
 	name = Jeff Carley
-	email = jcarley@abodo.com
+	email = jeff@datica.com
 [http]
 	sslVerify = true
 [credential]
