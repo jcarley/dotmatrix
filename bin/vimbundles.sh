@@ -40,6 +40,7 @@ get_bundle scrooloose   nerdtree
 get_bundle buoto        gotests-vim
 get_bundle udalov       kotlin-vim
 get_bundle vim-python   python-syntax
+get_bundle tmhedberg    SimpylFold
 
 ##### Extra nice to haves
 # get_bundle saltstack    salt-vim

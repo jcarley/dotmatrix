@@ -20,5 +20,7 @@
       "vuex": true,
       "cssPreprocessor": "node-sass"
     }
-  }
+  },
+  "latestVersion": "3.11.0",
+  "lastChecked": 1567255304028
 }

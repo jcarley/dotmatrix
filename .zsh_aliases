@@ -2,7 +2,7 @@ alias rakeuns='rake endpoints'
 alias flush_arp='sudo arp -d -a'
 alias flush_dns='sudo dscacheutil -flushcache'
 alias conflicts="grep -n -r '<<<<' *"
-alias myip="ifconfig en1 | grep inet | awk '{ print $2 }'"
+alias myip="ifconfig en0 | grep inet | awk '{ print $2 }'"
 alias lsof="lsof -i -n -P"
 
 # command line toolkit
@@ -138,6 +138,13 @@ alias cfu='bundle exec cucumber --format usage'
 # esp_aliases="$HOME/Projects/ruby/esp/scripts/share/aliases"
 # [[ ! -a $esp_aliases ]] || source $esp_aliases
 
+
+# ------------------------------------
+# Python alias and function
+# ------------------------------------
+alias py='python'
+
+
 # ------------------------------------
 # Docker alias and function
 # ------------------------------------
@@ -179,6 +186,9 @@ drm() { docker rm $(docker ps -a -q); }
 
 # Stop and Remove all containers
 alias drmf='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Remove dangling images
+alias ddangle='docker rmi -f $(docker images -f "dangling=true" -q)'
 
 # Remove all images
 dri() { docker rmi $(docker images -q); }
