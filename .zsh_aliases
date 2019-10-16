@@ -105,6 +105,7 @@ function goprojects() {
   cd ${GOPATH}/src/$FOLDER
 }
 
+alias ccms='cd /Users/jcarley/Projects/goworkspace/src/github.com/daticahealth/ccms'
 alias ref='vim ~/Dropbox/Work/reference'
 
 # k8s aliases
