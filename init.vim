@@ -28,6 +28,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 "" Plug install packages
 "*****************************************************************************
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -260,6 +261,13 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
+" comment
+nmap \\ <plug>NERDCommenterToggle<CR>
+vmap \\ <plug>NERDCommenterToggle<CR>
+
+" clear search
+nmap <silent> ,/ :nohlsearch<CR>
+
 " grep.vim
 nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
@@ -280,10 +288,10 @@ command! FixWhitespace :%s/\s\+$//e
 "" Functions
 "*****************************************************************************
 if !exists('*s:setupWrapping')
-  function s:setupWrapping()
+  function s:setupWrapping(wm, tw)
     set wrap
     set wm=2
-    set textwidth=120
+    set textwidth=79
   endfunction
 endif
 
@@ -486,6 +494,8 @@ augroup completion_preview_close
 augroup END
 
 augroup go
+
+  set nowrap
 
   au!
   au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
