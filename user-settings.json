@@ -1,0 +1,77 @@
+{
+    "editor.fontSize": 18,
+    "editor.fontFamily": "'Source Code Pro Regular', fontMenlo, Monaco, 'Courier New', monospace",
+    "files.trimTrailingWhitespace": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "go.lintTool": "revive",
+    "go.lintFlags": [
+        "-exclude=vendor/...",
+        "-config=${workspaceFolder}/config.toml"
+    ],
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.explorerKind": "external",
+    "workbench.iconTheme": "material-icon-theme",
+    "go.useLanguageServer": true,
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": true,
+    "editor.renderControlCharacters": false,
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Jellybeams",
+    "files.exclude": {
+        "**/__pycache__": true
+    },
+    "terminal.integrated.fontSize": 16,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "cypress.json"
+            ],
+            "url": "https://on.cypress.io/cypress.schema.json"
+        }
+    ],
+    "editor.tabSize": 2,
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [";"],
+            "after": [":"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>","<space>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y"
+            ]
+        }
+    ],
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.sideBar.location": "left",
+    "material-icon-theme.folders.theme": "classic",
+    "material-icon-theme.folders.color": "#26a69a",
+    "material-icon-theme.activeIconPack": "vue_vuex",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}
