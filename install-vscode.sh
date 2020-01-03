@@ -4,6 +4,9 @@ if ! command -v code &>/dev/null; then
   ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 fi
 
+# disable press and hold
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension gerane.Theme-Jellybeams
 code --install-extension quicktype.quicktype
