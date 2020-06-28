@@ -29,21 +29,26 @@ get_bundle fatih        vim-go
 get_bundle vim-airline  vim-airline
 get_bundle Shougo       neocomplete.vim
 get_bundle honza        dockerfile.vim
-get_bundle posva        vim-vue
 get_bundle Yggdroot     indentLine
 get_bundle hashivim     vim-terraform
-get_bundle pangloss     vim-javascript
-get_bundle leshill      vim-json
-get_bundle mxw          vim-jsx
 get_bundle scrooloose   nerdcommenter
 get_bundle scrooloose   nerdtree
 get_bundle buoto        gotests-vim
-get_bundle udalov       kotlin-vim
 get_bundle vim-python   python-syntax
 get_bundle tmhedberg    SimpylFold
+get_bundle saltstack    salt-vim
+
+get_bundle leafgarland  typescript-vim
+get_bundle posva        vim-vue
+get_bundle pangloss     vim-javascript
+get_bundle leshill      vim-json
+get_bundle mxw          vim-jsx
+
+# MaxMEllon/vim-jsx-pretty
+# peitalin/vim-jsx-typescript
 
 ##### Extra nice to haves
-# get_bundle saltstack    salt-vim
+# get_bundle udalov       kotlin-vim
 # get_bundle dbakker      vim-projectroot
 # get_bundle hackhowtofaq vim-solargraph
 # get_bundle tpope        vim-git
