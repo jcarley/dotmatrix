@@ -1,0 +1,36 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+2",
+        "command": "workbench.debug.action.toggleRepl"
+    },
+    {
+        "key": "shift+ctrl+y",
+        "command": "-workbench.debug.action.toggleRepl"
+    },
+    {
+        "key": "ctrl+1",
+        "command": "workbench.action.output.toggleOutput"
+    },
+    {
+        "key": "shift+ctrl+u",
+        "command": "-workbench.action.output.toggleOutput"
+    },
+    {
+        "key": "ctrl+3",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+`",
+        "command": "-workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+a l",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        "key": "ctrl+a h",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "terminalFocus"
+    }
+]
