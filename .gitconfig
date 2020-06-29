@@ -60,3 +60,5 @@
 	templatedir = ~/.git_template
 [mergetool]
 	keepBackup = true
+[pull]
+	ff = only
