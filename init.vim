@@ -261,6 +261,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
+" find the current file
+map <silent> <leader>f :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
+
 " comment
 nmap \\ <plug>NERDCommenterToggle<CR>
 vmap \\ <plug>NERDCommenterToggle<CR>
@@ -269,7 +272,7 @@ vmap \\ <plug>NERDCommenterToggle<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 
 " grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
+" nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
@@ -681,7 +684,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
