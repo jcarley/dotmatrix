@@ -30,6 +30,7 @@ call plug#begin(expand('~/.config/nvim/plugged'))
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -62,7 +63,6 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Color
@@ -261,6 +261,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
+" find the current file
+map <silent> <leader>f :NERDTree<CR>:wincmd l<CR>:NERDTreeFind<CR>
+
 " comment
 nmap \\ <plug>NERDCommenterToggle<CR>
 vmap \\ <plug>NERDCommenterToggle<CR>
@@ -269,7 +272,7 @@ vmap \\ <plug>NERDCommenterToggle<CR>
 nmap <silent> ,/ :nohlsearch<CR>
 
 " grep.vim
-nnoremap <silent> <leader>f :Rgrep<CR>
+" nnoremap <silent> <leader>f :Rgrep<CR>
 let Grep_Default_Options = '-IR'
 let Grep_Skip_Files = '*.log *.db'
 let Grep_Skip_Dirs = '.git node_modules'
@@ -372,13 +375,30 @@ let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
   set grepprg=ag\ --nogroup\ --nocolor
-endif
 
-" ripgrep
-if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-  set grepprg=rg\ --vimgrep
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>).'| tr -d "\017"', 1, <bang>0)
+  " nnoremap <leader>a :Ag
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+  let g:ctrlp_tabpage_position = 'ac'
+
+  map <leader>gn :CtrlP<cr>
+  map <leader>gv :CtrlP app/views<cr>
+  map <leader>gc :CtrlP app/controllers<cr>
+  map <leader>gm :CtrlP app/models<cr>
+  map <leader>gh :CtrlP app/helpers<cr>
+  " map <leader>gd :CtrlP app/decorators<cr>
+  map <leader>gi :CtrlP app/infrastructure<cr>
+  map <leader>gl :CtrlP lib<cr>
+  map <leader>gp :CtrlP public<cr>
+  map <leader>gs :CtrlP public/stylesheets<cr>
+
+  " shortcut for a new tab and Ag
+  nmap <leader>n :call NewTabAndAg()<cr>
+  function! NewTabAndAg()
+    :tabnew
+    :Ag
+  endfunction
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
@@ -386,12 +406,6 @@ nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
-
-" snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-let g:UltiSnipsEditSplit="vertical"
 
 " Tagbar
 nmap <silent> <F4> :TagbarToggle<CR>
@@ -681,7 +695,7 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
