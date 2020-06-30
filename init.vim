@@ -375,6 +375,30 @@ let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
   set grepprg=ag\ --nogroup\ --nocolor
+
+  " nnoremap <leader>a :Ag
+
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_match_window = 'bottom,order:ttb,min:1,max:20,results:20'
+  let g:ctrlp_tabpage_position = 'ac'
+
+  map <leader>gn :CtrlP<cr>
+  map <leader>gv :CtrlP app/views<cr>
+  map <leader>gc :CtrlP app/controllers<cr>
+  map <leader>gm :CtrlP app/models<cr>
+  map <leader>gh :CtrlP app/helpers<cr>
+  " map <leader>gd :CtrlP app/decorators<cr>
+  map <leader>gi :CtrlP app/infrastructure<cr>
+  map <leader>gl :CtrlP lib<cr>
+  map <leader>gp :CtrlP public<cr>
+  map <leader>gs :CtrlP public/stylesheets<cr>
+
+  " shortcut for a new tab and Ag
+  nmap <leader>n :call NewTabAndAg()<cr>
+  function! NewTabAndAg()
+    :tabnew
+    :Ag
+  endfunction
 endif
 
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
