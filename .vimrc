@@ -38,6 +38,7 @@ let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 
 colorscheme jellybeans-joel
+" colorscheme gruvbox
 " colorscheme grb256
 " colorscheme darkburn
 " colorscheme twilight256
@@ -65,7 +66,7 @@ set backupdir=~/.vimbackupdir,~/tmp,~/,.
 set directory=~/.vimbackupdir,~/tmp,~/,.
 set expandtab
 set filetype=sh
-set guifont=Monaco:h16
+set guifont="Noto Mono for Powerline Regular":h16
 set guioptions-=T guioptions-=e guioptions-=L guioptions-=r
 set hlsearch
 set ignorecase
