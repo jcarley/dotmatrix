@@ -151,6 +151,6 @@ function besdb {
 
 alias unhitch='hitch -u'
 
-bind 'set bind-tty-special-chars off'
+# bind 'set bind-tty-special-chars off'
 
 [ ! -f "$HOME/.bash_aliases.local" ] || . "$HOME/.bash_aliases.local"

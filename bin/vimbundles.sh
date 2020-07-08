@@ -16,6 +16,7 @@ get_bundle() {
 #####  The Core
 get_bundle tpope        vim-pathogen
 get_bundle jcarley      vim-colorschemes
+get_bundle morhetz      gruvbox
 get_bundle godlygeek    tabular
 get_bundle rking        ag.vim
 get_bundle tpope        vim-fugitive
