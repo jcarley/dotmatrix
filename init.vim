@@ -118,6 +118,12 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 
 
+"" Set Backup settings
+set nobackup
+set writebackup
+set backupdir=~/.nvimbackupdir,~/tmp,~/,.
+
+
 "" Fix backspace indent
 set backspace=indent,eol,start
 
@@ -169,7 +175,8 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme jellybeans-joel
+" silent! colorscheme jellybeans-joel
+silent! colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
