@@ -1,59 +1,43 @@
-#!/usr/bin/env ruby
-require 'fileutils'
+#!/usr/bin/env python3
 
-def cwd
-  @cwd ||= File.expand_path(File.dirname(__FILE__))
-end
+import os
+from pathlib import Path
 
-def root
-  File.dirname(cwd)
-end
 
-def home
-  @home ||= File.expand_path('~')
-end
+current_folder = os.path.dirname(os.path.abspath(__file__))
+print('Current folder', current_folder)
 
-def destination(file,sub_directory)
-  File.join(*[home, sub_directory, File.basename(file)].compact)
-end
+parent_folder = os.path.dirname(current_folder)
+print('Parent folder', parent_folder)
 
-def install(file,sub_directory=nil)
-  if system("ln -nsf #{root}/#{file} #{home}/#{file}")
-    print "successfully installed "
-  else
-    print "failed to install "
-  end
-  puts file
-end
+home = str(Path.home())
+print('Home folder', home)
+print()
 
-def uninstall(file,sub_directory=nil)
-  file = File.join(home, file)
-  return puts "no file at #{file}" unless File.exist?(file)
-  if File.symlink?(file)
-    File.unlink(file)
-    puts "removed symlink at #{file}"
-  else
-    puts "could not remove non-symlink at #{file}"
-  end
-end
+# link from dotmatrix
+for file_name in os.listdir(parent_folder):
+    source = os.path.join(parent_folder, file_name)
+    dest = os.path.join(home, file_name)
 
-def uninstall?
-  ARGV.include?('-u')
-end
+    if file_name.startswith('.'):
+        if not os.path.exists(dest):
+            print(dest + ' -> ' + source)
+            os.symlink(source, dest)
+        else:
+            print('skipped ' + source + ' exists')
 
-if ARGV.include?('-h')
-  script = File.basename(__FILE__)
-  puts %[
-  "#{script}" symlinks the files in dotmatrix into your home directory.
-  options:
-      -h  Get this help
-      -u  Remove symlinks to files in dotmatrix
-  ]
-  exit 0
-end
+# link from Dropbox
+for file_name in ['vimrc.local', 'zshrc.local', 'zshrc-Linux.local']:
+    source = os.path.join(home, 'Dropbox', 'dotfiles', 'home', file_name)
+    dest = os.path.join(home, '.' + file_name)
 
-FileUtils.mkdir_p(File.join(home,'bin'))
-(Dir.entries(root) - %w(bin . .. .git) + ['bin/hr']).each do |file|
-  next if file =~ /~$/
-  uninstall? ? uninstall(file) : install(file)
-end
+    if not os.path.exists(dest):
+        print(dest + ' -> ' + source)
+        os.symlink(source, dest)
+    else:
+        print('skipped ' + source + ' exists')
+
+# setup neovim
+
+# mkdir -p ~/.config/nvim
+# ln -sf ~/dotmatrix/init.vim ~/.config/nvim/init.vim

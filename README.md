@@ -36,11 +36,18 @@ If your permissions get reset for the location that brew stores everything, you 
 
 ## Installing and running ansible playbook
 
-1. Install ansible
+1. Install ansible and run ansible
+
    ```
    sudo apt update
    sudo apt install ansible -y
    cd ~/dotmatrix
    sudo ansible-playbook -c local -i localhost, local.yml
+   ```
+
+2. We could also access a playbook from github.  This would be handy for initial setup procedures.
+
+   ```
+   sudo ansible-pull -U https://github.com/<your_user_name>/ansible.git
    ```
 

@@ -286,7 +286,16 @@ nnoremap <silent> <leader>sh :terminal<CR>
 "" Commands
 "*****************************************************************************
 " remove trailing whitespaces
-command! FixWhitespace :%s/\s\+$//e
+command! Trim call TrimWhitespace()
+
+"*****************************************************************************
+"" Trim Whitespace
+"*****************************************************************************
+function! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfunction
 
 "*****************************************************************************
 "" Functions
@@ -643,6 +652,10 @@ endif
 
 if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/vue')
+  let g:coc_global_extensions += ['coc-vetur']
 endif
 
 " if hidden is not set, TextEdit might fail.

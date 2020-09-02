@@ -19,8 +19,32 @@
       "routerHistoryMode": false,
       "vuex": true,
       "cssPreprocessor": "node-sass"
+    },
+    "default": {
+      "useConfigFiles": true,
+      "plugins": {
+        "@vue/cli-plugin-babel": {},
+        "@vue/cli-plugin-typescript": {
+          "classComponent": true,
+          "useTsWithBabel": true
+        },
+        "@vue/cli-plugin-router": {
+          "historyMode": true
+        },
+        "@vue/cli-plugin-vuex": {},
+        "@vue/cli-plugin-eslint": {
+          "config": "prettier",
+          "lintOn": [
+            "save"
+          ]
+        },
+        "@vue/cli-plugin-unit-jest": {},
+        "@vue/cli-plugin-e2e-cypress": {}
+      },
+      "vueVersion": "2",
+      "cssPreprocessor": "node-sass"
     }
   },
-  "latestVersion": "4.2.2",
-  "lastChecked": 1582300727196
+  "latestVersion": "4.5.4",
+  "lastChecked": 1598307940436
 }
