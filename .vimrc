@@ -169,8 +169,8 @@ map <F2> :PBCopy<cr>
 "Toggle between paste and nopaste, shows which one is active
 map <F3> :set paste!\|set paste?<cr>
 
-"set clipboard=unnamed
-set clipboard=unnamedplus
+set clipboard=unnamed
+" set clipboard=unnamedplus
 xnoremap p pgvy
 
 " sudo save with w!!

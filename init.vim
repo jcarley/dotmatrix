@@ -169,7 +169,8 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme jellybeans-joel
+" silent! colorscheme jellybeans-joel
+silent! colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
