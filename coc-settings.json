@@ -1,9 +1,15 @@
 {
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "javascript", "vue"],
   "languageserver": {
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
+  },
+  "solargraph.transport": "external",
+  "solargraph.externalServer": {
+    "host": "localhost",
+    "port": 7658
   }
 }
