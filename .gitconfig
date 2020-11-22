@@ -29,7 +29,6 @@
   unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
   unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
 [commit]
-  template = ~/.gitmessage
 [color]
   branch = auto
   diff = auto
@@ -51,13 +50,12 @@
   enabled = true
 [user]
 	name = Jeff Carley
-	email = jeff.carley@datica.com
+	email = jeff.carley@gmail.com
 [http]
 	sslVerify = true
 [credential]
   helper = osxkeychain
 [init]
-	templatedir = ~/.git_template
 [mergetool]
 	keepBackup = true
 [pull]

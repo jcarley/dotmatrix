@@ -44,6 +44,8 @@ Plug 'avelino/vim-bootstrap-updater'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mileszs/ack.vim'
+Plug 'jgdavey/tslime.vim', {'branch': 'main'}
 
 let g:make = 'gmake'
 if exists('make')
@@ -101,6 +103,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-endwise'
 Plug 'thoughtbot/vim-rspec'
 Plug 'ecomba/vim-ruby-refactoring', {'tag': 'main'}
+Plug 'jcarley/vim-minitest'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -123,7 +126,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-
+set list listchars=tab:⇀\ ,trail:␠
 
 "" Set Backup settings
 set nobackup
@@ -236,7 +239,8 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'jellybeans'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -601,6 +605,16 @@ let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
 
+let g:tslime_always_current_session = 0
+let g:tslime_always_current_window = 1
+
+" rails specific mappings
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+" switch between last two files
+nnoremap <leader><leader> <c-^>
+
 augroup vimrc-ruby
   autocmd!
   autocmd BufNewFile,BufRead *.rb,*.rbw,*.gemspec setlocal filetype=ruby
@@ -619,10 +633,20 @@ let g:tagbar_type_ruby = {
 \ }
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+"map <Leader>t :call RunCurrentSpecFile()<CR>
+"map <Leader>s :call RunNearestSpec()<CR>
+"map <Leader>l :call RunLastSpec()<CR>
+"map <Leader>a :call RunAllSpecs()<CR>
+
+
+let g:minitest_command = 'Tmux bundle exec rails test {test}'
+
+nmap <Leader>t <Plug>vim-minitest#RunCurrentTestFile
+nmap <Leader>s <Plug>vim-minitest#RunNearestTest
+nmap <Leader>l <Plug>vim-minitest#RunLastTest
+nmap <Leader>a <Plug>vim-minitest#RunAllTests
+nmap <Leader>grs <Plug>vim-minitest#MakeMinitestFileIfMissing<cr> :A<cr>
+
 
 " For ruby refactory
 if has('nvim')
@@ -710,10 +734,6 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/vue')
   let g:coc_global_extensions += ['coc-vetur']
 endif
 
-if filereadable(expand('./Gemfile'))
-  let g:coc_global_extensions += ['coc-solargraph']
-endif
-
 "if filereadable(expand('./*.csproj'))
   "let g:coc_global_extensions += ['coc-omnisharp']
 "endif
@@ -786,4 +806,13 @@ nmap <leader>do <Plug>(coc-codeaction)
 " Rename symbol
 nmap <leader>rn <Plug>(coc-rename)
 
+
+" -------------------------------------------------------------------------------------------------
+" ack.vim default settings
+" -------------------------------------------------------------------------------------------------
+let g:ackprg = 'ag --vimgrep --smart-case'
+cnoreabbrev ag Ack
+cnoreabbrev aG Ack
+cnoreabbrev Ag Ack
+cnoreabbrev AG Ack
 

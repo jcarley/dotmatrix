@@ -305,6 +305,7 @@ EOF
 endfunction
 " command! -nargs=0 MakeRspecFileIfMissing call MakeRspecFileIfMissing()
 map <leader>grs :call MakeRspecFileIfMissing()<CR> :A<CR>
+map <leader>a :A<CR>
 
 " abbreviations
 iabbrev rmb require 'minitest/byebug'<Esc>F%s<c-o>:call getchar()<CR>
