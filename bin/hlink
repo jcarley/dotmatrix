@@ -53,36 +53,14 @@ for file in files:
     if os.path.exists(link_file):
         if force:
             print('removing existing symlink: ' + link_file)
-            #  os.remove(link_file)
+            os.remove(link_file)
 
     if not os.path.exists(link_file):
         print('linking ' + link_file + ' -> ' + actual_file)
-        #  os.symlink(actual_file, link_file)
+        os.symlink(actual_file, link_file)
     else:
         print('skipped ' + link_file + ' exists')
 
-# link from dotmatrix
-#  for file_name in os.listdir(parent_folder):
-#      source = os.path.join(parent_folder, file_name)
-#      dest = os.path.join(home, file_name)
-#
-#      if file_name.startswith('.'):
-#          if not os.path.exists(dest):
-#              print(dest + ' -> ' + source)
-#              os.symlink(source, dest)
-#          else:
-#              print('skipped ' + source + ' exists')
-
-# link from Dropbox
-#  for file_name in ['vimrc.local', 'zshrc.local', 'zshrc-Linux.local']:
-#      source = os.path.join(home, 'Dropbox', 'dotfiles', 'home', file_name)
-#      dest = os.path.join(home, '.' + file_name)
-#
-#      if not os.path.exists(dest):
-#          print(dest + ' -> ' + source)
-#          os.symlink(source, dest)
-#      else:
-#          print('skipped ' + source + ' exists')
 
 # setup neovim
 
