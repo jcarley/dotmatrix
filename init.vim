@@ -734,6 +734,10 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/vue')
   let g:coc_global_extensions += ['coc-vetur']
 endif
 
+if isdirectory('./vendor/bundle')
+  let g:coc_global_extensions += ['coc-solargraph']
+endif
+
 "if filereadable(expand('./*.csproj'))
   "let g:coc_global_extensions += ['coc-omnisharp']
 "endif
