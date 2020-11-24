@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 import os
+import platform
 from pathlib import Path
-
 
 current_folder = os.path.dirname(os.path.abspath(__file__))
 print('Current folder', current_folder)
@@ -14,28 +14,75 @@ home = str(Path.home())
 print('Home folder', home)
 print()
 
-# link from dotmatrix
-for file_name in os.listdir(parent_folder):
-    source = os.path.join(parent_folder, file_name)
-    dest = os.path.join(home, file_name)
+def gather():
+    dot_files = ['.agignore', '.ctags', '.gemrc', '.gitconfig', '.gitignore', '.gitmessage', '.irbrc', '.rspec', '.vimrc', '.vuerc', '.zshrc', '.zsh_aliases', '.vim']
+    dropbox_files = ['vimrc.local', 'zshrc.local']
 
-    if file_name.startswith('.'):
-        if not os.path.exists(dest):
-            print(dest + ' -> ' + source)
-            os.symlink(source, dest)
-        else:
-            print('skipped ' + source + ' exists')
+    link_files = []
+    for file_name in dot_files:
+        source = os.path.join(parent_folder, file_name)
+        dest = os.path.join(home, file_name)
+        link_files.append({'source': source, 'dest': dest})
+
+
+    system_os = platform.system().lower()
+    tmux_conf = f".tmux.conf.{system_os}"
+    source = os.path.join(parent_folder, tmux_conf)
+    dest = os.path.join(home, '.tmux.conf')
+    link_files.append({'source': source, 'dest': dest})
+
+    for file_name in ['vimrc.local', 'zshrc.local', f"zshrc-{system_os}.local"]:
+        source = os.path.join(home, 'Dropbox', 'dotfiles', 'work', file_name)
+        dest = os.path.join(home, '.' + file_name)
+        link_files.append({'source': source, 'dest': dest})
+
+    return link_files
+
+files = gather()
+
+force = True
+
+for file in files:
+    actual_file = file['source']
+    link_file = file['dest']
+
+    if not os.path.exists(actual_file):
+        print('skipped ' + actual_file + ' doesn''t exist')
+        continue
+
+    if os.path.exists(link_file):
+        if force:
+            print('removing existing symlink: ' + link_file)
+            #  os.remove(link_file)
+
+    if not os.path.exists(link_file):
+        print('linking ' + link_file + ' -> ' + actual_file)
+        #  os.symlink(actual_file, link_file)
+    else:
+        print('skipped ' + link_file + ' exists')
+
+# link from dotmatrix
+#  for file_name in os.listdir(parent_folder):
+#      source = os.path.join(parent_folder, file_name)
+#      dest = os.path.join(home, file_name)
+#
+#      if file_name.startswith('.'):
+#          if not os.path.exists(dest):
+#              print(dest + ' -> ' + source)
+#              os.symlink(source, dest)
+#          else:
+#              print('skipped ' + source + ' exists')
 
 # link from Dropbox
-for file_name in ['vimrc.local', 'zshrc.local', 'zshrc-Linux.local']:
-    source = os.path.join(home, 'Dropbox', 'dotfiles', 'home', file_name)
-    dest = os.path.join(home, '.' + file_name)
-
-    if not os.path.exists(dest):
-        print(dest + ' -> ' + source)
-        os.symlink(source, dest)
-    else:
-        print('skipped ' + source + ' exists')
+#  for file_name in ['vimrc.local', 'zshrc.local', 'zshrc-Linux.local']:
+#      source = os.path.join(home, 'Dropbox', 'dotfiles', 'home', file_name)
+#      dest = os.path.join(home, '.' + file_name)
+#
+#      if not os.path.exists(dest):
+#          print(dest + ' -> ' + source)
+#          os.symlink(source, dest)
+#      else:
+#          print('skipped ' + source + ' exists')
 
 # setup neovim
 
