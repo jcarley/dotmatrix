@@ -38,31 +38,49 @@ def gather():
 
     return link_files
 
-files = gather()
+def symlink_dotfiles(files, force=True):
+    for file in files:
+        actual_file = file['source']
+        link_file = file['dest']
 
-force = True
+        if not os.path.exists(actual_file):
+            print('skipped ' + actual_file + ' doesn''t exist')
+            continue
 
-for file in files:
-    actual_file = file['source']
-    link_file = file['dest']
+        if os.path.exists(link_file):
+            if force:
+                print('removing existing symlink: ' + link_file)
+                os.remove(link_file)
 
-    if not os.path.exists(actual_file):
-        print('skipped ' + actual_file + ' doesn''t exist')
-        continue
-
-    if os.path.exists(link_file):
-        if force:
-            print('removing existing symlink: ' + link_file)
-            os.remove(link_file)
-
-    if not os.path.exists(link_file):
-        print('linking ' + link_file + ' -> ' + actual_file)
-        os.symlink(actual_file, link_file)
-    else:
-        print('skipped ' + link_file + ' exists')
+        if not os.path.exists(link_file):
+            print('linking ' + link_file + ' -> ' + actual_file)
+            os.symlink(actual_file, link_file)
+        else:
+            print('skipped ' + link_file + ' exists')
 
 
-# setup neovim
+def setup_neovim():
+    #  mkdir -p ~/.config/nvim
+    # ln -sf ~/dotmatrix/init.vim ~/.config/nvim/init.vim
+    nvim_config_folder = os.path.join(home, '.config', 'nvim')
 
-# mkdir -p ~/.config/nvim
-# ln -sf ~/dotmatrix/init.vim ~/.config/nvim/init.vim
+    nvim_config_file = os.path.join(parent_folder, 'init.vim')
+    nvim_config_symlink = os.path.join(nvim_config_folder, 'init.vim')
+
+    coc_config_file = os.path.join(parent_folder, 'coc-settings.json')
+    coc_config_symlink = os.path.join(nvim_config_folder, 'coc-settings.json')
+
+    print('creating nvim config folder')
+    os.makedirs(nvim_config_folder)
+
+    print('linking ' + nvim_config_symlink + ' -> ' + nvim_config_file)
+    os.symlink(nvim_config_file, nvim_config_symlink)
+
+    print('linking ' + coc_config_symlink + ' -> ' + coc_config_file)
+    os.symlink(coc_config_file, coc_config_symlink)
+
+
+#  files = gather()
+#  symlink_dotfiles(files)
+setup_neovim()
+
