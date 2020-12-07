@@ -632,20 +632,28 @@ let g:tagbar_type_ruby = {
     \ ]
 \ }
 
-" RSpec.vim mappings
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
+" if the project uses rspec or minitest
+if isdirectory('./spec')
 
+  let g:rspec_command = "Tmux bin/rspec {spec}"
 
-let g:minitest_command = 'Tmux bundle exec rails test {test}'
+  " RSpec.vim mappings
+  map <Leader>t :call RunCurrentSpecFile()<CR>
+  map <Leader>s :call RunNearestSpec()<CR>
+  map <Leader>l :call RunLastSpec()<CR>
+  map <Leader>a :call RunAllSpecs()<CR>
 
-nmap <Leader>t <Plug>vim-minitest#RunCurrentTestFile
-nmap <Leader>s <Plug>vim-minitest#RunNearestTest
-nmap <Leader>l <Plug>vim-minitest#RunLastTest
-nmap <Leader>a <Plug>vim-minitest#RunAllTests
-nmap <Leader>grs <Plug>vim-minitest#MakeMinitestFileIfMissing<cr> :A<cr>
+else
+
+  let g:minitest_command = 'Tmux bundle exec rails test {test}'
+
+  nmap <Leader>t <Plug>vim-minitest#RunCurrentTestFile
+  nmap <Leader>s <Plug>vim-minitest#RunNearestTest
+  nmap <Leader>l <Plug>vim-minitest#RunLastTest
+  nmap <Leader>a <Plug>vim-minitest#RunAllTests
+  nmap <Leader>grs <Plug>vim-minitest#MakeMinitestFileIfMissing<cr> :A<cr>
+
+endif
 
 
 " For ruby refactory
