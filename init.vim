@@ -185,8 +185,8 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme jellybeans-joel
-"silent! colorscheme gruvbox
+"silent! colorscheme jellybeans-joel
+silent! colorscheme gruvbox
 
 set mousemodel=popup
 set t_Co=256
@@ -634,6 +634,27 @@ let g:tagbar_type_ruby = {
 
 " if the project uses rspec or minitest
 if isdirectory('./spec')
+
+  let g:rails_projections = {
+        \  "app/controllers/*_controller.rb": {
+        \      "test": [
+        \        "spec/requests/{}_spec.rb",
+        \        "spec/controllers/{}_controller_spec.rb",
+        \        "test/controllers/{}_controller_test.rb"
+        \      ],
+        \      "alternate": [
+        \        "spec/requests/{}_spec.rb",
+        \        "spec/controllers/{}_controller_spec.rb",
+        \        "test/controllers/{}_controller_test.rb"
+        \      ],
+        \   },
+        \   "spec/requests/*_spec.rb": {
+        \      "command": "request",
+        \      "alternate": "app/controllers/{}_controller.rb",
+        \      "template": "require 'rails_helper'\n\n" .
+        \        "RSpec.describe '{}' do\nend",
+        \   },
+        \ }
 
   let g:rspec_command = "Tmux bin/rspec {spec}"
 
