@@ -58,7 +58,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+
+"https://github.com/mlaursen/vim-react-snippets
+"Plug 'mlaursen/vim-react-snippets'
+"Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'jcarley/vim-colorschemes'
@@ -742,6 +746,25 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+
+" -------------------------------------------------------------------------------------------------
+" ultisnips settings
+" -------------------------------------------------------------------------------------------------
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+"let g:UltiSnipsExpandTrigger="<c-l>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" -------------------------------------------------------------------------------------------------
+" emmet settings
+" -------------------------------------------------------------------------------------------------
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<c-l>'
+autocmd FileType html,css EmmetInstall
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings
