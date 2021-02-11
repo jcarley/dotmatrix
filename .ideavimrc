@@ -18,7 +18,7 @@ noremap ;; ;
 nmap <C-j> ddp
 nmap <C-k> ddkP
 
-set clipboard=unnamed,autoselect
+set clipboard+=ideaput
 set surround
 set hlsearch
 set incsearch
@@ -35,6 +35,9 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
 
 " IntelliJ specific actions
 " To search for more actions use :actionlist <search term>
@@ -68,8 +71,8 @@ vnoremap == :<C-u>action ReformatCode<CR>
 nnoremap cc :<C-u>action CommentByLineComment<CR>
 vnoremap cc :<C-u>action CommentByLineComment<CR>
 
-vnoremap p :<C-u>action EditorSelectWord<CR>
-vnoremap n :<C-u>action EditorUnSelectWord<CR>
+" vnoremap <S-n> :<C-u>action EditorSelectWord<CR>
+" vnoremap n :<C-u>action EditorUnSelectWord<CR>
 
 " show information
 nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
@@ -88,3 +91,7 @@ nnoremap _ :<C-u>action Resume<CR>
 " window
 nnoremap s; :<C-u>action CloseActiveTab<CR>
 nnoremap so :<C-u>action MoveEditorToOppositeTabGroup<CR>
+
+" Tabs
+nnoremap <Tab> :<C-u>action NextTab<CR>
+nnoremap <S-Tab> :<C-u>action PreviousTab<CR>
