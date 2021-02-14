@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# You should create a symlink to this file to a folder on your PATH
+# ln -s ~/dotmatrix/rubymine /usr/local/bin/rubymine
+
+open -na "RubyMine.app" --args "$@"

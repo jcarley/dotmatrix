@@ -58,7 +58,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 "" Snippets
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+
+"https://github.com/mlaursen/vim-react-snippets
+"Plug 'mlaursen/vim-react-snippets'
+"Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'jcarley/vim-colorschemes'
@@ -188,7 +192,7 @@ set ruler
 set number
 
 let no_buffers_menu=1
-" silent! colorscheme jellybeans-joel
+"silent! colorscheme jellybeans-joel
 silent! colorscheme gruvbox
 
 set mousemodel=popup
@@ -635,20 +639,49 @@ let g:tagbar_type_ruby = {
     \ ]
 \ }
 
-" RSpec.vim mappings
-"map <Leader>t :call RunCurrentSpecFile()<CR>
-"map <Leader>s :call RunNearestSpec()<CR>
-"map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>
+" if the project uses rspec or minitest
+if isdirectory('./spec')
 
+  let g:rails_projections = {
+        \  "app/controllers/*_controller.rb": {
+        \      "test": [
+        \        "spec/requests/{}_spec.rb",
+        \        "spec/controllers/{}_controller_spec.rb",
+        \        "test/controllers/{}_controller_test.rb"
+        \      ],
+        \      "alternate": [
+        \        "spec/requests/{}_spec.rb",
+        \        "spec/controllers/{}_controller_spec.rb",
+        \        "test/controllers/{}_controller_test.rb"
+        \      ],
+        \   },
+        \   "spec/requests/*_spec.rb": {
+        \      "command": "request",
+        \      "alternate": "app/controllers/{}_controller.rb",
+        \      "template": "require 'rails_helper'\n\n" .
+        \        "RSpec.describe '{}' do\nend",
+        \   },
+        \ }
 
-let g:minitest_command = 'Tmux bundle exec rails test {test}'
+  let g:rspec_command = "Tmux bin/rspec {spec}"
 
-nmap <Leader>t <Plug>vim-minitest#RunCurrentTestFile
-nmap <Leader>s <Plug>vim-minitest#RunNearestTest
-nmap <Leader>l <Plug>vim-minitest#RunLastTest
-nmap <Leader>a <Plug>vim-minitest#RunAllTests
-nmap <Leader>grs <Plug>vim-minitest#MakeMinitestFileIfMissing<cr> :A<cr>
+  " RSpec.vim mappings
+  map <Leader>t :call RunCurrentSpecFile()<CR>
+  map <Leader>s :call RunNearestSpec()<CR>
+  map <Leader>l :call RunLastSpec()<CR>
+  map <Leader>a :call RunAllSpecs()<CR>
+
+else
+
+  let g:minitest_command = 'Tmux bundle exec rails test {test}'
+
+  nmap <Leader>t <Plug>vim-minitest#RunCurrentTestFile
+  nmap <Leader>s <Plug>vim-minitest#RunNearestTest
+  nmap <Leader>l <Plug>vim-minitest#RunLastTest
+  nmap <Leader>a <Plug>vim-minitest#RunAllTests
+  nmap <Leader>grs <Plug>vim-minitest#MakeMinitestFileIfMissing<cr> :A<cr>
+
+endif
 
 
 " For ruby refactory
@@ -716,6 +749,25 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
+
+
+" -------------------------------------------------------------------------------------------------
+" ultisnips settings
+" -------------------------------------------------------------------------------------------------
+" Trigger configuration. You need to change this to something other than <tab> if you use one of the following:
+" - https://github.com/Valloric/YouCompleteMe
+" - https://github.com/nvim-lua/completion-nvim
+"let g:UltiSnipsExpandTrigger="<c-l>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
+" -------------------------------------------------------------------------------------------------
+" emmet settings
+" -------------------------------------------------------------------------------------------------
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<c-l>'
+autocmd FileType html,css EmmetInstall
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings

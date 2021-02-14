@@ -1,0 +1,97 @@
+"" Fix backspace indent
+set backspace=indent,eol,start
+
+"" Tabs. May be overridden by autocmd rules
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set expandtab
+
+"" Map leader to ,
+let mapleader=','
+
+map ; :
+
+noremap ;; ;
+
+" bubble text
+nmap <C-j> ddp
+nmap <C-k> ddkP
+
+set clipboard+=ideaput
+set surround
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+" IntelliJ specific actions
+" To search for more actions use :actionlist <search term>
+
+" general
+nnoremap ,a :<C-u>action GotoAction<CR>
+vnoremap ,a :<C-u>action GotoAction<CR>
+nnoremap ,e :<C-u>action SearchEverywhere<CR>
+nnoremap ,s :<C-u>action FileStructurePopup<CR>
+nnoremap ,g :<C-u>action FindInPath<CR>
+nnoremap ,r :<C-u>action RecentFiles<CR>
+
+nnoremap ,z :<C-u>action RecentProjectListGroup<CR>
+
+" jump on code
+nnoremap gd :<C-u>action GotoDeclaration<CR>
+nnoremap gs :<C-u>action GotoSuperMethod<CR>
+nnoremap gi :<C-u>action GotoImplementation<CR>
+nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap gb :<C-u>action JumpToLastChange<CR>
+nnoremap gu :<C-u>action ShowUsages<CR>
+nnoremap gt :<C-u>action GotoTest<CR>
+nnoremap gh :<C-u>action Back<CR>
+nnoremap gl :<C-u>action Forward<CR>
+
+" code editing
+nnoremap r :<C-u>action RenameElement<CR>
+nnoremap q :<C-u>action ShowIntentionActions<CR>
+nnoremap == :<C-u>action ReformatCode<CR>
+vnoremap == :<C-u>action ReformatCode<CR>
+nnoremap cc :<C-u>action CommentByLineComment<CR>
+vnoremap cc :<C-u>action CommentByLineComment<CR>
+
+" vnoremap <S-n> :<C-u>action EditorSelectWord<CR>
+" vnoremap n :<C-u>action EditorUnSelectWord<CR>
+
+" show information
+nnoremap <C-I> :<C-u>action QuickJavaDoc<CR>
+
+nnoremap ,p :<C-u>action PasteMultiple<CR>
+nnoremap ,P :<C-u>action PasteMultiple<CR>
+
+nnoremap f :<C-u>action AceAction<CR>
+vnoremap f :<C-u>action AceAction<CR>
+
+" kick intellij commands
+nnoremap R :<C-u>action ChooseRunConfiguration<CR>
+nnoremap - :<C-u>action StepOver<CR>
+nnoremap _ :<C-u>action Resume<CR>
+
+" window
+nnoremap s; :<C-u>action CloseActiveTab<CR>
+nnoremap so :<C-u>action MoveEditorToOppositeTabGroup<CR>
+
+" Tabs
+nnoremap <Tab> :<C-u>action NextTab<CR>
+nnoremap <S-Tab> :<C-u>action PreviousTab<CR>
