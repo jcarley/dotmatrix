@@ -28,6 +28,7 @@
   glog =  log --all --pretty='format:%d %Cgreen%h%Creset %an - %s' --
   unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
   unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [commit]
 [color]
   branch = auto
@@ -56,6 +57,7 @@
 [credential]
   helper = osxkeychain
 [init]
+	defaultBranch = main
 [mergetool]
 	keepBackup = true
 [pull]
