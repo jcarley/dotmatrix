@@ -19,11 +19,16 @@ nmap <C-j> ddp
 nmap <C-k> ddkP
 
 set clipboard+=ideaput
+set idearefactormode=keep
+set ideajoin
 set surround
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+set visualbell
+set noerrorbells
 
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -43,20 +48,21 @@ nnoremap <silent> <leader><space> :noh<cr>
 " To search for more actions use :actionlist <search term>
 
 " general
-nnoremap ,a :<C-u>action GotoAction<CR>
-vnoremap ,a :<C-u>action GotoAction<CR>
-nnoremap ,e :<C-u>action SearchEverywhere<CR>
-nnoremap ,s :<C-u>action FileStructurePopup<CR>
-nnoremap ,g :<C-u>action FindInPath<CR>
-nnoremap ,r :<C-u>action RecentFiles<CR>
+nnoremap <leader>a :<C-u>action GotoAction<CR>
+vnoremap <leader>a :<C-u>action GotoAction<CR>
+nnoremap <leader>e :<C-u>action SearchEverywhere<CR>
+nnoremap <leader>s :<C-u>action FileStructurePopup<CR>
+nnoremap <leader>g :<C-u>action FindInPath<CR>
+nnoremap <leader>r :<C-u>action RecentFiles<CR>
 
-nnoremap ,z :<C-u>action RecentProjectListGroup<CR>
+nnoremap <leader>z :<C-u>action RecentProjectListGroup<CR>
 
 " jump on code
 nnoremap gd :<C-u>action GotoDeclaration<CR>
 nnoremap gs :<C-u>action GotoSuperMethod<CR>
 nnoremap gi :<C-u>action GotoImplementation<CR>
-nnoremap gf :<C-u>action GotoFile<CR>
+" nnoremap gf :<C-u>action GotoFile<CR>
+nnoremap <leader>gn :<C-u>action GotoFile<CR>
 nnoremap gb :<C-u>action JumpToLastChange<CR>
 nnoremap gu :<C-u>action ShowUsages<CR>
 nnoremap gt :<C-u>action GotoTest<CR>
@@ -64,12 +70,12 @@ nnoremap gh :<C-u>action Back<CR>
 nnoremap gl :<C-u>action Forward<CR>
 
 " code editing
-nnoremap r :<C-u>action RenameElement<CR>
+nnoremap <leader>re :<C-u>action RenameElement<CR>
 nnoremap q :<C-u>action ShowIntentionActions<CR>
 nnoremap == :<C-u>action ReformatCode<CR>
 vnoremap == :<C-u>action ReformatCode<CR>
-nnoremap cc :<C-u>action CommentByLineComment<CR>
-vnoremap cc :<C-u>action CommentByLineComment<CR>
+nnoremap \\\\ :<C-u>action CommentByLineComment<CR>
+vnoremap \\\\ :<C-u>action CommentByLineComment<CR>
 
 " vnoremap <S-n> :<C-u>action EditorSelectWord<CR>
 " vnoremap n :<C-u>action EditorUnSelectWord<CR>
@@ -87,6 +93,7 @@ vnoremap f :<C-u>action AceAction<CR>
 nnoremap R :<C-u>action ChooseRunConfiguration<CR>
 nnoremap - :<C-u>action StepOver<CR>
 nnoremap _ :<C-u>action Resume<CR>
+nmap <leader>f :<C-u>action LocateInSolutionView<CR>
 
 " window
 nnoremap s; :<C-u>action CloseActiveTab<CR>
@@ -95,3 +102,8 @@ nnoremap so :<C-u>action MoveEditorToOppositeTabGroup<CR>
 " Tabs
 nnoremap <Tab> :<C-u>action NextTab<CR>
 nnoremap <S-Tab> :<C-u>action PreviousTab<CR>
+
+" NERDTree
+set NERDTree
+let g:NERDTreeMapActiveNode='l'
+let g:NERDTreeMapJumpParent='h'

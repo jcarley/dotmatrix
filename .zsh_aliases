@@ -15,6 +15,13 @@ alias zoomsmash='sudo killall VDCAssistant'
 # brew
 alias upgrayedd='brew upgrade && brew cleanup'
 
+# ruby
+function _timestamp() {
+  ruby -e "puts Time.now.strftime('%Y%m%d%H%I%M%S%L')"
+}
+
+alias timestamp=_timestamp
+
 # silver searcher
 function ags() {
   local DIR=$PWD
