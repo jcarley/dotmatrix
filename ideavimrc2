@@ -1,0 +1,67 @@
+"" Source your .vimrc
+"source ~/.vimrc
+
+let mapleader = ","
+
+map ; :
+
+noremap ;; ;
+
+set number relativenumber
+set idearefactormode=keep
+set ideajoin
+set surround
+set easymotion
+set clipboard+=ideaput
+set hlsearch
+set ignorecase
+set smartcase
+set scrolloff=5
+set incsearch
+map Q gq
+
+set visualbell
+set noerrorbells
+
+" bubble text
+nmap <C-j> ddp
+nmap <C-k> ddkP
+
+"" Clean search (highlight)
+nnoremap <silent> <leader><space> :noh<cr>
+
+" system clipboard
+vnoremap y "+y
+vnoremap d "+d
+nmap <leader>y "+yy
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P
+
+map <leader>d <Action>(Debug)
+map <leader>r <Action>(RenameElement)
+map <leader>c <Action>(Stop)
+map <leader>z <Action>(ToggleDistractionFreeMode)
+
+" actions
+nmap <leader>h <action>(PreviousTab)
+nmap <leader>l <action>(NextTab)
+nmap <leader>bd <action>(CloseEditor)
+nmap <leader>i <action>(Generate)
+nmap <leader>m <action>(Git.Menu)
+nmap <leader>/ <action>(ShowErrorDescription)
+nmap <leader>e <action>(GotoNextError)
+nmap <leader>f <action>(LocateInSolutionView)
+nmap <leader>sh <action>(ShowIntentionActions)
+nmap <leader>gn <action>(GotoFile)
+nmap \\\\ <action>(CommentByLineComment)
+vmap \\\\ <action>(CommentByLineComment)
+nnoremap <leader><leader> <C-Tab>
+
+" run tests
+nnoremap <leader>s <action>(RiderUnitTestDebugContextAction)
+
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
