@@ -12,7 +12,8 @@ set idearefactormode=keep
 set ideajoin
 set surround
 set easymotion
-set clipboard+=ideaput
+" set clipboard+=ideaput
+set clipboard+=unnamed
 set hlsearch
 set ignorecase
 set smartcase
@@ -21,7 +22,7 @@ set incsearch
 map Q gq
 
 set visualbell
-set noerrorbells
+" set noerrorbells
 
 " bubble text
 nmap <C-j> ddp
@@ -45,19 +46,37 @@ map <leader>c <Action>(Stop)
 map <leader>z <Action>(ToggleDistractionFreeMode)
 
 " actions
-nmap <leader>h <action>(PreviousTab)
-nmap <leader>l <action>(NextTab)
+nmap <leader>th <action>(HideAllWindows)
+
+nmap <s-TAB> <action>(PreviousTab)
+nmap <TAB> <action>(NextTab)
 nmap <leader>bd <action>(CloseEditor)
 nmap <leader>i <action>(Generate)
 nmap <leader>m <action>(Git.Menu)
 nmap <leader>/ <action>(ShowErrorDescription)
 nmap <leader>e <action>(GotoNextError)
-nmap <leader>f <action>(LocateInSolutionView)
-nmap <leader>sh <action>(ShowIntentionActions)
-nmap <leader>gn <action>(GotoFile)
+nmap <leader><leader> <action>(ShowIntentionActions)
+" nmap <leader>gn <action>(GotoFile)
 nmap \\\\ <action>(CommentByLineComment)
 vmap \\\\ <action>(CommentByLineComment)
-nnoremap <leader><leader> <C-Tab>
+nmap = <action>(SilentCodeCleanup)
+" nnoremap <leader><leader> <C-Tab>
+
+nmap <leader>fs :action LocateInSolutionView<cr>
+nmap <leader>fc :action CopyPaths<cr>
+nmap <leader>fe :action RecentChangedFiles<cr>
+nmap <leader>ff :action GotoFile<cr>
+nmap <leader>fl :action RecentLocations<cr>
+nmap <leader>fm :action FileStructurePopup<cr>
+nmap <leader>fr :action RecentFiles<cr>
+nmap <leader>ft :action SelectIn<cr>
+nmap <leader>fv :action ActivateStructureToolWindow<cr>
+nmap <leader>fd :action NewDir<cr>
+
+nnoremap <leader>xs :source ~/.ideavimrc<cr>
+nnoremap <leader>xa :action
+nnoremap <leader>xl :actionlist
+
 
 " run tests
 nnoremap <leader>s <action>(RiderUnitTestDebugContextAction)
