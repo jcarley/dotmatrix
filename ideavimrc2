@@ -56,11 +56,9 @@ nmap <leader>m <action>(Git.Menu)
 nmap <leader>/ <action>(ShowErrorDescription)
 nmap <leader>e <action>(GotoNextError)
 nmap <leader><leader> <action>(ShowIntentionActions)
-" nmap <leader>gn <action>(GotoFile)
 nmap \\\\ <action>(CommentByLineComment)
 vmap \\\\ <action>(CommentByLineComment)
 nmap = <action>(SilentCodeCleanup)
-" nnoremap <leader><leader> <C-Tab>
 
 nmap <leader>fs :action LocateInSolutionView<cr>
 nmap <leader>fc :action CopyPaths<cr>
@@ -76,7 +74,6 @@ nmap <leader>fd :action NewDir<cr>
 nnoremap <leader>xs :source ~/.ideavimrc<cr>
 nnoremap <leader>xa :action
 nnoremap <leader>xl :actionlist
-
 
 " run tests
 nnoremap <leader>s <action>(RiderUnitTestDebugContextAction)

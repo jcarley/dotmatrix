@@ -40,7 +40,7 @@ command! -bar -nargs=* -bang -complete=file Rename :
       \   call delete(expand("#"))|
       \ endif
 
-command! -bar -nargs=0 -bang -complete=file Remove :
+command! -bar -nargs=1 -bang -complete=file Remove :
       \ let v:errmsg = ''|
       \ let s:removable = expand('%:p')|
       \ bdelete<bang>|
