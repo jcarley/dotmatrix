@@ -7,7 +7,12 @@ map ; :
 
 noremap ;; ;
 
-set number relativenumber
+" absolute line numbers
+set number
+
+" relative line numbers
+" set number relativenumber
+
 set idearefactormode=keep
 set ideajoin
 set surround
@@ -17,7 +22,7 @@ set clipboard+=unnamed
 set hlsearch
 set ignorecase
 set smartcase
-set scrolloff=5
+set scrolloff=2
 set incsearch
 map Q gq
 
@@ -63,7 +68,8 @@ nmap = <action>(SilentCodeCleanup)
 nmap <leader>fs :action LocateInSolutionView<cr>
 nmap <leader>fc :action CopyPaths<cr>
 nmap <leader>fe :action RecentChangedFiles<cr>
-nmap <leader>ff :action GotoFile<cr>
+nmap <leader>gn :action GotoFile<cr>
+nmap <leader>ff :action FindInPath<cr>
 nmap <leader>fl :action RecentLocations<cr>
 nmap <leader>fm :action FileStructurePopup<cr>
 nmap <leader>fr :action RecentFiles<cr>

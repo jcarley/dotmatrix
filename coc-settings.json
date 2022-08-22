@@ -6,6 +6,5 @@
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     }
-  },
-  "solargraph.useBundler": "true"
+  }
 }

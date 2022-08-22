@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CWD=$(basename $PWD)
+VERSION=$(python --version | cut -w -f 2 | sed 's/\.//g')
+
+VENV=${CWD}${VERSION}
+
+pyenv virtualenv ${VENV}
+pyenv local ${VENV}
+
+echo "Created new venv ${VENV}"
