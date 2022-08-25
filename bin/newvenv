@@ -9,4 +9,8 @@ pyenv virtualenv ${VENV}
 pyenv local ${VENV}
 python3 -m pip install --upgrade pip setuptools wheel
 
-echo "Created new venv ${VENV}"
+echo "============================"
+echo "|                          |"
+echo "| Created new venv ${VENV} |"
+echo "|                          |"
+echo "============================"
