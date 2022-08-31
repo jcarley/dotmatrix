@@ -2,13 +2,20 @@
 
 CWD=$(basename $PWD)
 VERSION=$(python --version | cut -w -f 2 | sed 's/\.//g')
-
+SCRIPT_DIR=$( dirname $( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd ) )
+TEMPLATE_DIR=${SCRIPT_DIR}/templates
 VENV=${CWD}${VERSION}
+
+echo
+echo "===> Creating venv ${VENV}"
+echo
 
 pyenv virtualenv ${VENV}
 pyenv local ${VENV}
 python3 -m pip install --upgrade pip setuptools wheel
 
+cat ${TEMPLATE_DIR}/docker-compose.yml | sed "s/{{ app_name }}/${CWD}/g" > $(pwd)/docker-compose.yml
+
 echo
-echo "===> Created new venv ${VENV}"
+echo "===> Finished creating new venv ${VENV}"
 echo

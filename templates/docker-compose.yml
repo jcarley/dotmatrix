@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  db:
+    ipc: host
+    image: postgres:14.5-alpine
+    container_name: {{ app_name }}_db
+    ports:
+      - "5432:5432"
+    environment:
+      - TERM=xterm
+      - POSTGRES_USER={{ app_name }}_admin
+      - POSTGRES_PASSWORD={{ app_name }}_password
+      - POSTGRES_DB={{ app_name }}_development
+    volumes:
+      - "./dbdata:/var/lib/postgresql/data"
+
+  redis:
+    image: redis:5.0.12-alpine
+    container_name: {{ app_name }}_redis
+    ports:
+      - "6379:6379"
