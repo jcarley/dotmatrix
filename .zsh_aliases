@@ -147,6 +147,9 @@ alias cfu='bundle exec cucumber --format usage'
 # ------------------------------------
 alias py='python'
 
+# Django manage api
+alias pm='python manage.py'
+
 
 # ------------------------------------
 # Docker alias and function
