@@ -150,6 +150,8 @@ alias py='python'
 # Django manage api
 alias pm='python manage.py'
 
+# Pipenv aliases
+alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv; cat $venv/.project | sed "s/\(.*\)/\t\1\n/" ; done'
 
 # ------------------------------------
 # Docker alias and function
