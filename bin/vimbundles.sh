@@ -38,6 +38,7 @@ get_bundle buoto        gotests-vim
 get_bundle vim-python   python-syntax
 get_bundle tmhedberg    SimpylFold
 get_bundle saltstack    salt-vim
+get_bundle joshdick     onedark.vim
 
 get_bundle leafgarland  typescript-vim
 get_bundle posva        vim-vue
