@@ -116,5 +116,7 @@ bind Up new -d -n tmp \; swap-pane -s tmp.0 \; select-window -t tmp
 unbind Down
 bind Down last-window \; swap-pane -s tmp.0 \; kill-window -t tmp
 
+set-option -g focus-events on
+
 set-option -g default-shell /bin/zsh
 

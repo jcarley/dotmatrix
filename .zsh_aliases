@@ -16,8 +16,13 @@ alias zoomsmash='sudo killall VDCAssistant'
 alias upgrayedd='brew upgrade && brew cleanup'
 
 # ruby
+# function _timestamp() {
+#   ruby -e "puts Time.now.strftime('%Y%m%d%H%I%M%S%L')"
+# }
+#
+
 function _timestamp() {
-  ruby -e "puts Time.now.strftime('%Y%m%d%H%I%M%S%L')"
+  date -u +"1.%Y%m%d.%H%M"
 }
 
 alias timestamp=_timestamp
@@ -159,7 +164,7 @@ alias pipenv-list='for venv in ~/.local/share/virtualenvs/* ; do basename $venv;
 
 # docker and friends
 alias d='docker'
-alias dc='docker-compose'
+alias dc='docker compose'
 alias dm='docker-machine'
 
 # Get latest container ID
