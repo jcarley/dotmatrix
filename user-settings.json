@@ -1,5 +1,5 @@
 {
-    "editor.fontSize": 18,
+    "editor.fontSize": 16,
     "editor.fontFamily": "'Source Code Pro Regular', fontMenlo, Monaco, 'Courier New', monospace",
     "files.trimTrailingWhitespace": true,
     "workbench.startupEditor": "newUntitledFile",
@@ -18,7 +18,8 @@
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Jellybeams",
     "files.exclude": {
-        "**/__pycache__": true
+        "**/__pycache__": true,
+        "node_modules": true
     },
     "terminal.integrated.fontSize": 16,
     "json.schemas": [
@@ -33,11 +34,16 @@
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.leader": ",",
+    "vim.surround": true,
     "vim.normalModeKeyBindings": [
         {
             "before": [";"],
             "after": [":"]
-        }
+        },
+        {
+            "before": ["g", "D"],
+            "commands": ["editor.action.revealDefinitionAside"]
+        },
     ],
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -48,6 +54,88 @@
                     "command": ":nohl"
                 }
             ]
+        },
+        {
+            "before": ["<tab>"],
+            "commands": [
+                {
+                    "command": ":tabnext"
+                }
+            ]
+        },
+        {
+            "before": ["<S-tab>"],
+            "commands": [
+                {
+                    "command": ":tabprevious"
+                }
+            ]
+        },
+        {
+            "before": ["\\", "\\"],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "revealInExplorer"
+            ],
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "e"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "f"
+            ],
+            "commands": [
+                "fileutils.renameFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "n"
+            ],
+            "after": [
+                "<Cmd-p"
+            ]
+        },
+        {
+            "before": ["s"],
+            "after": ["<leader>", "<leader>", "2", "s"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["<leader>", "<leader>", "j"]
+        },
+        {
+            "before": ["<C-k>"],
+            "after": ["<leader>", "<leader>", "k"]
         }
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
@@ -61,17 +149,94 @@
                 "v",
                 "y"
             ]
-        }
+        },
+        {
+            "before": ["\\", "\\"],
+            "commands": [
+                "editor.action.commentLine"
+            ]
+        },
     ],
-    "vsicons.dontShowNewVersionMessage": true,
-    "workbench.sideBar.location": "left",
     "material-icon-theme.folders.theme": "classic",
     "material-icon-theme.folders.color": "#26a69a",
     "material-icon-theme.activeIconPack": "vue_vuex",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "workbench.panel.defaultLocation": "right",
+    "explorer.compactFolders": false,
+    "prettier.useEditorConfig": false,
+    "prettier.requireConfig": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.run": "onSave",
+    "eslint.format.enable": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "gitlens.codeLens.symbolScopes": [
+            "!Module"
+        ],
+        "editor.wordBasedSuggestions": false,
+        "editor.defaultFormatter": "ms-python.python",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4
+    },
+    "window.title": "${activeEditorShort}${separator}${activeEditorMedium}",
+    "editor.linkedEditing": true,
+    "css.validate": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "extensions.ignoreRecommendations": true,
+    "gitlens.codeLens.enabled": false,
+    "editor.cursorStyle": "line",
+    "editor.lineNumbers": "on",
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.wordWrap": "off",
+    "search.exclude": {
+        "**/vendor/bundle": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "[rust]": {
+    "editor.insertSpaces": true,
+    "editor.trimAutoWhitespace": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2
+    },
+    "rust-client.updateOnStartup": true,
+    "rust.all_features": true,
+    "rust.clippy_preference": "on",
+    "tabnine.experimentalAutoImports": true,
+    "scss.lint.unknownAtRules": "ignore",
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "vim.easymotion": true,
+    "diffEditor.codeLens": true,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
+    "python.languageServer": "Pylance",
+    "python.formatting.provider": "black",
+    "editor.detectIndentation": false,
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
