@@ -31,6 +31,37 @@ local plugins = {
     end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        -- defaults 
+        "vim",
+        "lua",
+
+        -- web dev 
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "tsx",
+
+       -- programming languages
+        "c",
+        "go",
+        "python",
+        "dockerfile",
+        "markdown",
+        "ruby",
+        "rust",
+
+        -- config markup
+        "yaml",
+        "json",
+        "toml"
+      },
+    },
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     init = function()
