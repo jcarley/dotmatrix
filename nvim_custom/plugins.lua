@@ -22,6 +22,15 @@ local plugins = {
     end
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = function()
+      local nvchad_table = require "plugins.configs.nvimtree"
+      local dotmatrix_table = require "custom.configs.nvimtree"
+
+      return vim.tbl_deep_extend("force", nvchad_table, dotmatrix_table)
+    end,
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     init = function()
