@@ -16,10 +16,6 @@ keymap.set("n", ";", ":")
 -- clear search
 keymap.set("n", "<leader><space>", ":nohlsearch<CR>", { desc = "Clear search" } )
 
--- bubble text
-keymap.set("n", "<C-J>", "ddp", { desc = "Bubble single line text up" } )
-keymap.set("n", "<C-K>", "ddkP", { desc = "Bubble single line text down" } )
-
 -- bubble blocks
 keymap.set("v", "<C-J>", ":m '>+1<CR>gv=gv", { desc = "Bubble block of text up" } )
 keymap.set("v", "<C-K>", ":m '<-2<CR>gv=gv", { desc = "Bubble block of text down" } )
