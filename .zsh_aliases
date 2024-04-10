@@ -27,6 +27,12 @@ function _timestamp() {
 
 alias timestamp=_timestamp
 
+function _version() {
+  date -u +"%Y%m%d.%H%M"
+}
+
+alias version=_version
+
 # silver searcher
 function ags() {
   local DIR=$PWD
