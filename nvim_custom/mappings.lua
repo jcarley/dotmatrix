@@ -1,5 +1,18 @@
 local M = {}
 
+M.bubble_text = {
+  plugin = false,
+
+  n = {
+    ["<C-j>"] = {
+      "ddp",
+    },
+    ["<C-k>"] = {
+      "ddkP",
+    },
+  },
+}
+
 M.comment = {
   plugin = true,
 
