@@ -39,6 +39,7 @@
   excludesfile = ~/.cvsignore
   editor = vim
   whitespace = warn
+	autocrlf = input
 [help]
   autocorrect = 10
 [interactive]
