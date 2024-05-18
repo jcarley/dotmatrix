@@ -4,6 +4,13 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
+lspconfig.elixirls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "elixir", "eex", "eelixir", "heex", "surface" },
+  cmd = { "/opt/homebrew/bin/elixir-ls" }
+})
+
 lspconfig.rust_analyzer.setup({
   on_attach = on_attach,
   capabilities = capabilities,
