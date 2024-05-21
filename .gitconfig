@@ -62,3 +62,5 @@
 	keepBackup = true
 [pull]
 	rebase = false
+[url "https://gitlab-ci-token:yJxXes1oX1jD8dsVhvGS@gitlab.artisight.com/"]
+	insteadOf = https://gitlab.artisight.com/

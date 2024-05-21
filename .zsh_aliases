@@ -33,6 +33,18 @@ function _version() {
 
 alias version=_version
 
+function _ghmigrate() {
+  PROJECT_NAME=$(basename "${PWD}")
+
+  gh repo create artisight/$PROJECT_NAME --source=. --internal --remote=upstream
+  git push --mirror upstream
+  git remote remove origin
+  git remote rename upstream origin
+  git remote -v
+}
+
+alias ghmigrate=_ghmigrate
+
 # silver searcher
 function ags() {
   local DIR=$PWD
