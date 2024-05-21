@@ -19,10 +19,10 @@ alias upgrayedd='brew upgrade && brew cleanup'
 # function _timestamp() {
 #   ruby -e "puts Time.now.strftime('%Y%m%d%H%I%M%S%L')"
 # }
-#
+
 
 function _timestamp() {
-  date -u +"1.%Y%m%d.%H%M"
+  date -u +"%Y%m%d.%H%M"
 }
 
 alias timestamp=_timestamp

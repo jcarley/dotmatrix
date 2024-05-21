@@ -1,7 +1,5 @@
-"" Source your .vimrc
-"source ~/.vimrc
-
 let mapleader = ","
+let g:mapleader = ","
 
 map ; :
 
@@ -45,10 +43,10 @@ nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P
 
-map <leader>d <Action>(Debug)
-map <leader>r <Action>(RenameElement)
-map <leader>c <Action>(Stop)
-map <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>d <Action>(Debug)
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>c <Action>(Stop)
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
 
 " actions
 nmap <leader>th <action>(HideAllWindows)
