@@ -45,6 +45,10 @@ function _ghmigrate() {
 
 alias ghmigrate=_ghmigrate
 
+ecrlogin() {
+  aws ecr get-login-password --profile $PROFILE | docker login -u AWS --password-stdin "https://$(aws sts get-caller-identity --query 'Account' --output text --profile $PROFILE).dkr.ecr.$(aws configure get region --profile $PROFILE).amazonaws.com"
+}
+
 # silver searcher
 function ags() {
   local DIR=$PWD
