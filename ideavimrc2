@@ -74,6 +74,7 @@ nmap <leader>fr :action RecentFiles<cr>
 nmap <leader>ft :action SelectIn<cr>
 nmap <leader>fv :action ActivateStructureToolWindow<cr>
 nmap <leader>fd :action NewDir<cr>
+nmap <leader>b :action ActivateProjectToolWindow<cr>
 
 nnoremap <leader>xs :source ~/.ideavimrc<cr>
 nnoremap <leader>xa :action

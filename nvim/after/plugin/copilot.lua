@@ -1,3 +1,0 @@
--- vim.cmd [[
---   Copilot enable
--- ]]
