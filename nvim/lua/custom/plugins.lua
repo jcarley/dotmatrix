@@ -65,6 +65,19 @@ local plugins = {
     },
   },
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
     init = function()
@@ -72,22 +85,33 @@ local plugins = {
     end
   },
   {
-    "vim-test/vim-test",
-    -- config = function()
-    --   vim.cmd([[
-    --     function! BufferTermStrategy(cmd)
-    --       exec 'te ' . a:cmd
-    --     endfunction
-    --
-    --     let g:test#custom_strategies = {'bufferterm': function('BufferTermStrategy')}
-    --     let g:test#strategy = 'bufferterm'
-    --   ]])
-    -- end,
-    keys = {
-      { "<leader>Tf", "<cmd>TestFile<cr>",    silent = true, desc = "Run this file" },
-      { "<leader>Tn", "<cmd>TestNearest<cr>", silent = true, desc = "Run nearest test" },
-      { "<leader>Tl", "<cmd>TestLast<cr>",    silent = true, desc = "Run last test" },
+    "nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-neotest/neotest-jest",
+			"nvim-neotest/neotest-plenary",
+		},
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
     },
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
   },
   {
     "mfussenegger/nvim-dap",
