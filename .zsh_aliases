@@ -95,6 +95,7 @@ alias cpuinfo='less /proc/cpuinfo' ##
 alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 
 # git aliases
+alias lg='lazygit'
 alias gt="git for-each-ref --sort=taggerdate --format '%(refname) %(taggerdate)' refs/tags"
 alias gap='git add -p'
 alias gbnm='git branch --no-merged'
