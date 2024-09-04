@@ -2,8 +2,8 @@ local plugins = {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensured_installed = {
-        "rust_analyzer",
+      ensure_installed = {
+        "rust-analyzer",
         "gopls",
         "goimports",
         "pyright",
@@ -11,7 +11,7 @@ local plugins = {
         "flake8",
         "isort",
         "stylua",
-        "elixirls"
+        "elixir-ls",
       },
     },
   },
@@ -20,7 +20,7 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspcustom"
-    end
+    end,
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -35,18 +35,18 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
-        -- defaults 
+        -- defaults
         "vim",
         "lua",
 
-        -- web dev 
+        -- web dev
         "html",
         "css",
         "javascript",
         "typescript",
         "tsx",
 
-       -- programming languages
+        -- programming languages
         "c",
         "go",
         "python",
@@ -60,7 +60,7 @@ local plugins = {
         -- config markup
         "yaml",
         "json",
-        "toml"
+        "toml",
       },
     },
   },
@@ -82,17 +82,17 @@ local plugins = {
     requires = { "nvim-lua/plenary.nvim" },
     init = function()
       require "custom.configs.null_ls"
-    end
+    end,
   },
   {
     "nvim-neotest/neotest",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-neotest/neotest-jest",
-			"nvim-neotest/neotest-plenary",
-		},
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-neotest/neotest-jest",
+      "nvim-neotest/neotest-plenary",
+    },
   },
   {
     "kdheepak/lazygit.nvim",
@@ -110,14 +110,14 @@ local plugins = {
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
   {
     "mfussenegger/nvim-dap",
     init = function()
-      require("core.utils").load_mappings("dap")
-    end
+      require("core.utils").load_mappings "dap"
+    end,
   },
   {
     "leoluz/nvim-dap-go",
@@ -125,26 +125,26 @@ local plugins = {
     dependencies = "mfussenegger/nvim-dap",
     config = function(_, opts)
       require("dap-go").setup(opts)
-      require("core.utils").load_mappings("dap_go")
-    end
+      require("core.utils").load_mappings "dap_go"
+    end,
   },
   {
     "olexsmir/gopher.nvim",
     ft = "go",
     config = function(_, opts)
       require("gopher").setup(opts)
-      require("core.utils").load_mappings("gopher")
+      require("core.utils").load_mappings "gopher"
     end,
     build = function()
       vim.cmd [[silent! GoInstallDeps]]
-    end
+    end,
   },
   {
     "rust-lang/rust.vim",
     ft = "rust",
     init = function()
       vim.g.rustfmt_autosave = 1
-    end
+    end,
   },
 }
 return plugins
