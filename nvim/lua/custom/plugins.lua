@@ -7,7 +7,6 @@ local plugins = {
         "gopls",
         "goimports",
         "pyright",
-        "black",
         "flake8",
         "isort",
         "stylua",
