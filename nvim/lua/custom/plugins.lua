@@ -8,7 +8,6 @@ local plugins = {
         "goimports",
         "pyright",
         "flake8",
-        "isort",
         "stylua",
         "elixir-ls",
       },
